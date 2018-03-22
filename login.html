@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="arquitecto tecnico trebujena, redaccion de proyectos, direcciones de obras, seguridad y salud" content="Estudio arquitectura;">
+<meta name="angel varela pruaño" content="Proyectos;">
+<meta name="obras" content="Obras;">
+<title>Arquitecto tecnico - Trebujena</title>
+<!-- CSS de Bootstrap -->
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<!-- Custom Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Mrs+Sheppards%7CDosis:300,400,700%7COpen+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800;' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+<!-- Plugin CSS -->
+<link rel="stylesheet" href="css/animate.min.css" type="text/css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/style.css" type="text/css">
+
+</head>
+<style media="screen">
+body{
+  background-color: rgb(66, 66, 66);
+}
+	#ini:hover{
+		color: #f05f40;
+	}
+</style>
+
+<body>
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+  	<!-- Brand and toggle get grouped for better mobile display -->
+  	<div class="navbar-header">
+  		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+  		<span class="sr-only">Toggle navigation</span>
+  		<span class="icon-bar"></span>
+  		<span class="icon-bar"></span>
+  		<span class="icon-bar"></span>
+  		</button>
+  		<a class="navbar-brand page-scroll" href="#page-top"><img src="img/logo.jpg"  alt="arquitecto tecnico-Trebujena"></a>
+  	</div>
+  	<!-- Collect the nav links, forms, and other content for toggling -->
+  	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  		<ul class="nav navbar-nav navbar-right">
+  			<li>
+  			<a class="page-scroll" href="#page-top" id="ini">Inicio</a>
+  			</li>
+  			<li>
+  			<a class="page-scroll" href="#about" id="ini">Nosotros</a>
+  			</li>
+  			<li>
+  			<a class="page-scroll" href="#services" id="ini">Services</a>
+  			</li>
+  			<li>
+  			<a class="page-scroll" href="#portfolio" id="ini">Work</a>
+  			</li>
+  			<li>
+  			<a class="page-scroll" href="#pricing" id="ini">Pricing</a>
+  			</li>
+  			<li>
+  			<a class="page-scroll" href="#contact" id="ini">Contacto</a>
+  			</li>
+  		</ul>
+  	</div>
+  	<!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+  </nav>
+<div class="container" >
+<h2>FORMULARIO</h2>
+
+<hr style="border-color:rgb(210, 33, 33)"/>
+
+<form class="form-horizontal" role="form" id="form1" name="form1" method="post" action="logeo.php">
+<fieldset>
+<h4>Identifiquese:</h4>
+  <div class="input-group">
+   <label class="sr-only" for="usuario">Usuario</label>
+   <span class="input-group-addon" style="background-color:rgb(235, 80, 80)"><i class="glyphicon glyphicon-user" ></i></span>
+    <input  class="form-control"  type="text" name="usuario" id="usuario" placeholder="Usuario o Email"   title="Introduzca solo caracteres A-Z , a-z y numeros de 0 a 9" />
+  </div>
+  <div class="input-group">
+      <label class="sr-only" for="password">Contraseña</label>
+     <span class="input-group-addon" style="background-color:rgb(235, 80, 80)"><i class="glyphicon glyphicon-lock"></i></span>
+    <input class="form-control" type="password" name="pass" id="pass" placeholder="Contraseña" pattern="[- A-Za-z0-9]{1,20}"  title="Introduzca solo caracteres A-Z , a-z y numeros de 0 a 9" />
+  </div>
+
+  <div class="botones">
+    <div class="izquierda"><a href="agregar/registro.html">Recuperar contraseña</a></div>
+    <div class="derecha"><a href="agregar/registro.html">Alta nueva</a></div>
+</div>
+
+  <input class="btn btn-ghost down-btn page-scroll btn-lg"   data-animation="animated fadeInLeft" type="reset" name="limpiar" value="Borrar" />
+  <input  class="btn btn-primary" type="submit" name="enviar" style="background-color:rgb(210, 33, 33)" id="enviar" value="Validar" />
+
+
+</form>
+<hr style="border-color:rgb(210, 33, 33)"/>
+<p>Acceso mediante codigo QR , etiquetas NFC, huella dactilar o detector facial</p>
+
+</div>
+
+
+
+
+</body>
+</html>
