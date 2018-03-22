@@ -41,7 +41,7 @@ p {
 }
 .bg-dark {
 	color:#ccc;
-	background-color:#222;
+	background-color:#282f35;
 }
 .bg-gray {
 	background-color:#f4f4f4;
@@ -996,9 +996,9 @@ ul .tline-holder>li {
 	margin-top:30px;
 }
 h1.bottombrand {
-		font-family:"Mrs Sheppards";
+		font-family:"Century Gothic";
 	color:#fff;
-	font-size:60px;
+	font-size:30px;
 	margin-top:0;
 }
 h1.bottombrand:first-letter {

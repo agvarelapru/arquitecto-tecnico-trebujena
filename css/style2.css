@@ -1,0 +1,55 @@
+body{
+  background-color: #282f35;
+  font-family:Century Gothic;
+}
+	#ini:hover{
+		color: #f05f40;
+	}
+  h2{
+    color:white;
+    font-family:Century Gothic;
+  }
+  h4{
+    color:white;
+    font-family:Century Gothic;
+  }
+  p{
+    color:white;
+    font-family:Century Gothic;
+  }
+.back{
+  color:white;
+}
+.back:hover{
+  color: #f05f40;
+}
+.social{
+  float:right;
+}
+#social{
+  	color: #f05f40;
+  float:right;
+  font-size:200%;
+  margin-left:0%;
+letter-spacing: 1em;
+}
+#social-left{
+  	color: #f05f40;
+  float:left;
+  font-size:200%;
+  margin-left:0%;
+letter-spacing: 1em;
+}
+#social-right{
+  	color: #f05f40;
+  float:right;
+  font-size:200%;
+
+  text-align: right;
+}
+.fa-angle-up{
+  color:color: #f05f40;
+}
+.direccion{
+  margin-left: 5%;
+}

@@ -16,16 +16,9 @@
 <link rel="stylesheet" href="css/animate.min.css" type="text/css">
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/style.css" type="text/css">
-
+<link rel="stylesheet" href="css/style2.css" type="text/css">
 </head>
-<style media="screen">
-body{
-  background-color: rgb(66, 66, 66);
-}
-	#ini:hover{
-		color: #f05f40;
-	}
-</style>
+
 
 <body>
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -44,7 +37,7 @@ body{
   	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   		<ul class="nav navbar-nav navbar-right">
   			<li>
-  			<a class="page-scroll" href="#page-top" id="ini">Inicio</a>
+  			<a class="page-scroll" href="index.html" id="ini">Inicio</a>
   			</li>
   			<li>
   			<a class="page-scroll" href="#about" id="ini">Nosotros</a>
@@ -67,22 +60,23 @@ body{
   </div>
   <!-- /.container -->
   </nav>
-<div class="container" >
-<h2>FORMULARIO</h2>
-
-<hr style="border-color:rgb(210, 33, 33)"/>
+<div class="container" id="home">
+  <br><br>
+<h2 >Acceso a <b style="color:#f05f40">zona privada</b></h2><br>
+<p>Acceda a su zona privada para la gestion de sus encargos, subida y descarga de documentacion, informacion del encargo y si aun no es usuario registrese para consultar la informacion de sus encargos.</p>
+<hr/>
 
 <form class="form-horizontal" role="form" id="form1" name="form1" method="post" action="logeo.php">
 <fieldset>
 <h4>Identifiquese:</h4>
   <div class="input-group">
    <label class="sr-only" for="usuario">Usuario</label>
-   <span class="input-group-addon" style="background-color:rgb(235, 80, 80)"><i class="glyphicon glyphicon-user" ></i></span>
+   <span class="input-group-addon" style="background-color:#f05f40"><i class="glyphicon glyphicon-user" ></i></span>
     <input  class="form-control"  type="text" name="usuario" id="usuario" placeholder="Usuario o Email"   title="Introduzca solo caracteres A-Z , a-z y numeros de 0 a 9" />
   </div>
   <div class="input-group">
       <label class="sr-only" for="password">Contraseña</label>
-     <span class="input-group-addon" style="background-color:rgb(235, 80, 80)"><i class="glyphicon glyphicon-lock"></i></span>
+     <span class="input-group-addon" style="background-color:#f05f40"><i class="glyphicon glyphicon-lock"></i></span>
     <input class="form-control" type="password" name="pass" id="pass" placeholder="Contraseña" pattern="[- A-Za-z0-9]{1,20}"  title="Introduzca solo caracteres A-Z , a-z y numeros de 0 a 9" />
   </div>
 
@@ -92,16 +86,61 @@ body{
 </div>
 
   <input class="btn btn-ghost down-btn page-scroll btn-lg"   data-animation="animated fadeInLeft" type="reset" name="limpiar" value="Borrar" />
-  <input  class="btn btn-primary" type="submit" name="enviar" style="background-color:rgb(210, 33, 33)" id="enviar" value="Validar" />
+  <input  class="btn btn-primary" type="submit" name="enviar" style="background-color:" id="enviar" value="Entrar" />
 
 
 </form>
-<hr style="border-color:rgb(210, 33, 33)"/>
-<p>Acceso mediante codigo QR , etiquetas NFC, huella dactilar o detector facial</p>
+<hr>
+<p>Acceso mediante redes sociales</p>
 
 </div>
 
+<!-- Section Footer
+================================================== -->
 
+<section class="bg-dark">
+<div class="container">
+<div class="row">
+	<div class="col-md-12 text-center">
+    <hr>
+		<h1 class="bottombrand wow flipInX">arquitecto tecnico - trebujena</h1>
+
+    <div class="col-md-4" style="text-align:left;" >
+        <address>
+    <span class="glyphicon glyphicon-map-marker" id="social-left"></span><strong>Direccion</strong><br>
+            <br>
+            <div class="direccion">
+              Angel Varela Pruaño<br>
+              Calle Ramon y Cajal nº 1, <br>
+              Trebujena, CP. 11560. Cadiz, España<br>
+              Phone: (+34) 605884603<br>
+              Email: info@arquitecto-tecnico-trebujena.es
+            </div>
+
+
+          </address>
+      </div>
+
+<br><br><br><br>
+    <div class="social">
+
+        <a href="#"><span class="fa fa-dribbble" id="social"></span></a>
+        <a href="#"><span class="fa fa-twitter" id="social"></span></a>
+            <a href="#"><span class="fa fa-google-plus" id="social"></span></a>
+        <a href="#"><span class="fa fa-facebook" id="social"></span></a>
+      </div>
+
+<br><br><br>
+
+		 <p style="float:left;">2018 © Angel Varela Pruaño. All Rights Reserved. Coded & Designed by <a href="http://www.agvarelapru.esy.es">Angel Varela</a></p>
+
+     <div class="pull-right">
+         <a href="#home" class="back">Volver arriba <span class="fa fa-angle-up" id="social-right"></span></a>
+     </div>
+	</div>
+</div>
+</div>
+</section>
 
 
 </body>
