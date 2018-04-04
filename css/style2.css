@@ -74,6 +74,7 @@ section {
 section-heading{
   color:white;
 }
+
 @media(max-width:768px) {
   .social{
     float:left;
