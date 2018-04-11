@@ -74,6 +74,34 @@ section {
 section-heading{
   color:white;
 }
+.registro{
+  width: 70%;
+  margin-left: 15%;
+
+}
+fieldset {
+
+}
+legend{
+  color:white;
+
+}
+fieldset{
+    border:3px solid #f05f40;
+    
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+
+}
+legend{
+border-bottom:0px solid #f05f40;
+color:white;
+width: auto;
+}
+label{
+  color:#f05f40;
+}
 
 @media(max-width:768px) {
   .social{
@@ -85,6 +113,11 @@ margin-bottom: 5%;
   #social3{
     margin-top:3%;
     margin-bottom:7%;
+  }
+  .registro{
+    width: 90%;
+    margin-left: 5%;
+
   }
 }
 @media(min-width:992px) {}
