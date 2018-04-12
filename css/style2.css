@@ -88,7 +88,7 @@ legend{
 }
 fieldset{
     border:3px solid #f05f40;
-    
+
     padding-bottom: 1em;
     padding-left: 1em;
     padding-right: 1em;
@@ -102,7 +102,26 @@ width: auto;
 label{
   color:#f05f40;
 }
+.registrado{
+padding-top: 3%;
 
+  list-style: none;
+}
+.registrado label{
+  color:white;
+  margin-left: 6%;
+}
+.error{
+  color:red;
+  font-weight: bold;
+  text-align:right;
+}
+.registro li{
+  border-bottom:1px solid #f05f40;
+}
+.registro li:first-child{
+  border-top:1px solid #f05f40;
+}
 @media(max-width:768px) {
   .social{
     float:left;

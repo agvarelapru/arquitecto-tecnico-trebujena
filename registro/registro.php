@@ -116,7 +116,7 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or
 
 <div class="col-md-8 registro">
 
-    <form method="post" action="contact.php" id="contactform" >
+    <form method="post" action="insertaRegistro.php" id="contactform" >
 
       <div class="form-group">
         <label for="nick">Usuario</label>
@@ -163,8 +163,8 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or
                   <input class="form-control" type="text" name="apellido2" id="apellido2" placeholder="Apellido 2" pattern="[ A-Za-z ñÑ]{1,50}"  title="Introduzca el apellido 2"  required/>
                 </div>
                 <div class="form-group">
-                  <label for="nif">NIF / CIF</label>
-                  <input class="form-control" type="text" name="nif" id="nif" placeholder="NIF" pattern="(([X-Zx-z]{1})([-]?)(\d{7})([-]?)([A-Za-z]{1}))|((\d{8})([-]?)([A-Za-z]{1}))|(([A-Za-z]{1})([-]?)(\d{8}))"  title="Introduzca su NIF o CIF"  required/>
+                  <label for="nif">NIF</label>
+                  <input class="form-control" type="text" name="nif" id="nif" placeholder="NIF" pattern="(([X-Zx-z]{1})([-]?)(\d{7})([-]?)([A-Za-z]{1}))|((\d{8})([-]?)([A-Za-z]{1}))|(([A-Za-z]{1})(\d{8}))"  title="Introduzca su NIF o CIF"  required/>
                 </div>
                 <div class="form-group">
                   <label for="direccion">Direccion</label>
@@ -269,7 +269,7 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or
 
 }
 
-
+ mysqli_close($conexion);
 ?>
 
 

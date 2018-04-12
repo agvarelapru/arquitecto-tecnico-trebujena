@@ -31,6 +31,7 @@ window.onload = function(){
 document.getElementById("pass").addEventListener('blur',comprueba,false);
 document.getElementById("pass2").addEventListener('blur',comprueba,false);
 document.getElementById("provincia").addEventListener('change',muestraMunicipios,false);
+
   document.getElementById("enviar").addEventListener('click',pass,false);
 
     }
@@ -87,7 +88,8 @@ for(var x=0;x<municipios.length;x=x+2){
 
 
             document.getElementById("poblaciones").innerHTML =option;
-
+document.getElementById('provi').style.color='#f05f40';
+  document.getElementById('pobla').style.color='#f05f40';
            }
        };
        xmlhttp.open("GET","../biblioteca/poblaciones.php?q="+str,true);
@@ -95,7 +97,6 @@ for(var x=0;x<municipios.length;x=x+2){
 
    }
 }
-
 
 
 
