@@ -83,17 +83,15 @@ session_start();
 </nav>
 
 <?php
-if(empty($_SESSION['nick']) || empty($_SESSION['nombre']) || empty($_SESSION['apellido1']) || empty($_SESSION['apellido2']) ||  empty($_SESSION['nif']) || empty($_SESSION['direccion']) || empty($_SESSION['cp']) || empty($_SESSION['poblacion']) || empty($_SESSION['provincia']) || empty($_SESSION['telefono']) || empty($_SESSION['email'])){
-$_SESSION['nick']=$_SESSION['nombre']=$_SESSION['apellido1']=$_SESSION['apellido2']=$_SESSION['nif']=$_SESSION['direccion']=$_SESSION['cp']=$_SESSION['poblacion']=$_SESSION['provincia']=$_SESSION['telefono']=$_SESSION['email']="";
-
 
 require_once('../biblioteca/conexion.php');
 
-$conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or
-    die("Problemas con la conexión.");
+$conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la conexión.");
   mysqli_set_charset($conexion,"utf8");
 
 
+if(empty($_SESSION['nick']) || empty($_SESSION['nombre']) || empty($_SESSION['apellido1']) || empty($_SESSION['apellido2']) ||  empty($_SESSION['nif']) || empty($_SESSION['direccion']) || empty($_SESSION['cp']) || empty($_SESSION['poblacion']) || empty($_SESSION['provincia']) || empty($_SESSION['telefono']) || empty($_SESSION['email'])){
+$_SESSION['nick']=$_SESSION['nombre']=$_SESSION['apellido1']=$_SESSION['apellido2']=$_SESSION['nif']=$_SESSION['direccion']=$_SESSION['cp']=$_SESSION['poblacion']=$_SESSION['provincia']=$_SESSION['telefono']=$_SESSION['email']="";
 
 
 ?>
@@ -105,7 +103,7 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or
 
     <div class="container">
         <div class="section-title text-center">
-          <h2>Registrate con <b style="color: #f05f40;">nosotros</b></h2>
+          <h2 class="bottombrand wow flipInX">Registrate con <b style="color: #f05f40;">nosotros</b></h2>
           <hr class="primary">
       		<p>
       			¿Aun no estas registrado? Pues no tardes en hacerlo, para poder disfrutar de todo el contenido de nuestra web, egistrate con nosotros y podra consultar todos los datos de su encargo, asi como intercambiar documentacion ver fotografias del estado de la obra, descargar facturas, etc.
@@ -211,7 +209,7 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or
                   <select class="form-control" name="poblacion" id="poblaciones" title="Indique su poblacion" required/>
 
 
-<                     <option value="">--Selecione una localidad--</option>
+                     <option value="">--Selecione una localidad--</option>
 
                             </select>
 
@@ -252,9 +250,183 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or
 }else{
 
 
+
+
+
+
 ?>
 
+<!-- Section Contact
+================================================== -->
+<br><br>
 
+
+    <div class="container">
+        <div class="section-title text-center">
+          <h2 class="bottombrand wow flipInX">Registrate con <b style="color: #f05f40;">nosotros</b></h2>
+          <hr class="primary">
+      		<p>
+      			¿Aun no estas registrado? Pues no tardes en hacerlo, para poder disfrutar de todo el contenido de nuestra web, egistrate con nosotros y podra consultar todos los datos de su encargo, asi como intercambiar documentacion ver fotografias del estado de la obra, descargar facturas, etc.
+      		</p>
+      </div>
+</div>
+<br><br>
+
+<div class="col-md-8 registro">
+
+    <form method="post" action="insertaRegistro.php" id="contactform" >
+
+      <div class="form-group">
+        <label for="nick">Usuario</label><span class="error"><?php echo " ".$_SESSION["nickErr"];?></span>
+        <input  class="form-control" type="text" name="nick" id="nick" placeholder="Usuario" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca nombre de usuario .-_A-Za-z0-9 ñÑ" required autofocus value="<?php echo $_SESSION['nick'];?>"/>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+      <div class="form-group">
+        <label for="pass">Contraseña</label>
+        <input  class="form-control" type="password"  name="pass" id="pass"  placeholder="Contraseña" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca contraseña .-_A-Za-z0-9 ñÑ" required />
+    </div>
+      </div>
+      <div class="col-md-6">
+      <div class="form-group">
+        <label for="pass2" id="error">Repetir Contraseña</label>
+        <input  class="form-control" type="password" name="pass2" id="pass2"  placeholder="Contraseña" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca contraseña .-_A-Za-z0-9 ñÑ"   required />
+        <h5 id="error"></h5>
+      </div>
+      <h5 id="error"></h5>
+
+
+    </div>
+    </div>
+
+<br><br>
+
+<fieldset>
+<legend>Datos personales</legend>
+        <div class="row">
+            <div class="col-md-6">
+
+
+
+                <div class="form-group">
+                  <label for="nombre">Nombre</label><span class="error"><?php echo " ".$_SESSION["nombreErr"];?></span>
+                  <input  class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre" pattern="[ A-Za-z ñÑ]{1,50}"  title="Introduzca nombre"  required value="<?php echo $_SESSION['nombre'];?>"/>
+                </div>
+                <div class="form-group">
+                  <label for="apellido1">Apellido 1</label><span class="error"><?php echo " ".$_SESSION["apellido1Err"];?></span>
+                  <input class="form-control" type="text" name="apellido1" id="apellido1" placeholder="Apellido 1" pattern="[ A-Za-z ñÑ]{1,50}"  title="Introduzca el apellido 1"   required value="<?php echo $_SESSION['apellido1'];?>"/>
+                </div>
+                <div class="form-group">
+                  <label for="apellido2">Apellido 2</label><span class="error"><?php echo " ".$_SESSION["apellido2Err"];?></span>
+                  <input class="form-control" type="text" name="apellido2" id="apellido2" placeholder="Apellido 2" pattern="[ A-Za-z ñÑ]{1,50}"  title="Introduzca el apellido 2"  required value="<?php echo $_SESSION['apellido2'];?>"/>
+                </div>
+                <div class="form-group">
+                  <label for="nif">NIF</label><span class="error"><?php echo "  ".$_SESSION["nifErr"];?></span>
+                  <input class="form-control" type="text" name="nif" id="nif" placeholder="NIF" pattern="(([X-Zx-z]{1})([-]?)(\d{7})([-]?)([A-Za-z]{1}))|((\d{8})([-]?)([A-Za-z]{1}))|(([A-Za-z]{1})(\d{8}))"  title="Introduzca su NIF 00000000A"  required value="<?php echo $_SESSION['nif'];?>"/>
+                </div>
+                <div class="form-group">
+                  <label for="direccion">Direccion</label><span class="error"><?php echo " ".$_SESSION["direccionErr"];?></span>
+                  <input class="form-control" type="text" name="direccion" id="direccion" placeholder="Direccion" pattern="[ A-Za-zñÑ0-9,./-]{1,100}"  title="Introduzca la Direccion A-Z 0-9 ,.-/"  required value="<?php echo $_SESSION['direccion'];?>"/>
+                </div>
+
+
+
+
+            </div>
+            <div class="col-md-6">
+
+
+
+                <div class="form-group">
+                  <label for="cp">Codigo postal</label><span class="error"><?php echo " ".$_SESSION["cpErr"];?></span>
+                  <input class="form-control" type="text" name="cp" id="cp" placeholder="CP" pattern="[0-9]{5}"  title="Introduzca su codigo postal"  required value="<?php echo $_SESSION['cp'];?>"/>
+                </div>
+                <div class="form-group">
+                  <label for="provincia" id="provi">Provincia</label><span class="error"><?php echo " ".$_SESSION["provinciaErr"];?></span>
+
+                  <select class="form-control" name="provincia" id="provincia" title="Indique su provincia" required />
+ <option value="">--Selecione una provincia--</option>
+                  <?php
+
+                  $consulta_mysql=mysqli_query($conexion,"select * from provincias") or
+                  die("Problemas en el select:".mysqli_error($conexion));
+
+
+                  while($reg=mysqli_fetch_array($consulta_mysql)){
+
+if($reg["id"]==$_SESSION['provincia']){
+
+	echo "<option value='".$reg["id"]."' selected>".$reg["provincia"]."</option>";
+}else{
+	  echo "<option value='".$reg["id"]."'>".$reg["provincia"]."</option>";
+}
+
+
+
+                  }
+                  ?>
+                            </select>
+
+
+
+                </div>
+
+                <div class="form-group">
+                  <label for="poblacion" id="pobla" >Poblacion</label> <span class="error"><?php echo " ".$_SESSION["poblacionErr"];?></span>
+
+                  <select class="form-control" name="poblacion" id="poblaciones" title="Indique su poblacion" required value="<?php echo $_SESSION['poblacion'];?>"/>
+
+										<?php
+
+										$consulta_mysql2=mysqli_query($conexion,"select * from municipios") or
+										die("Problemas en el select:".mysqli_error($conexion));
+
+
+										while($reg2=mysqli_fetch_array($consulta_mysql2)){
+
+											if($reg2["id"]==$_SESSION['poblacion']){
+
+											echo "<option value='".$reg2["id"]."' selected>".$reg2["municipio"]."</option>";
+											}else{
+										echo "<option value='".$reg2["id"]."'>".$reg2["municipio"]."</option>";
+										}
+
+
+
+										}
+										?>
+
+
+                            </select>
+
+
+
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Telefono</label><span class="error"><?php echo " ".$_SESSION["telefonoErr"];?></span>
+                  <input class="form-control" type="text" name="telefono" id="telefono" placeholder="Telefono" pattern="[0-9]{9}"  title="Introduzca su numero de telefono"  required value="<?php echo $_SESSION['telefono'];?>"/>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label><span class="error"><?php echo " ".$_SESSION["emailErr"];?></span>
+                  <input class="form-control" type="email" name="email" id="email" placeholder="correo@ejemplo.com" required pattern= "[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="Introduzca este formato correo@ejemplo.com" value="<?php echo $_SESSION['email'];?>"/>
+                </div>
+
+
+
+
+            </div>
+        </div>
+  </fieldset>
+  <br>
+        <div class="text-right">
+          <input class="contact submit btn btn-primary btn-xl" type="reset" name="limpiar" value="Borrar" />
+          <input  class="contact submit btn btn-primary btn-xl" type="submit" id="enviar" name="registrar" value="Registrar usuario"/>
+        </div>
+    </form>
+</div>
+
+<br><br>
 
 
 

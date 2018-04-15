@@ -83,7 +83,9 @@ session_start();
   </nav>
 
 <?php
-
+require_once('../biblioteca/conexion.php');
+$conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la conexión.");
+  mysqli_set_charset($conexion,"utf8");
 
 
 $nick=$nombre=$pass=$pass2=$apellido1=$apellido2=$nif=$direccion=$cp=$poblacion=$provincia=$telefono=$email="";
@@ -94,6 +96,10 @@ $nick=$_REQUEST['nick'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+  $consulta_mysql2=mysqli_query($conexion,"select usuarios_usuario from usuarios") or
+  die("Problemas en el select:".mysqli_error($conexion));
+
+
 if (empty($_POST["nick"])) {
   $nickErr = "Nick obligatorio";
 } else {
@@ -101,6 +107,11 @@ if (empty($_POST["nick"])) {
   if (!preg_match("/^[a-zñA-ZÑ0-9-._]*$/",$nick)) {
     $nickErr = "Solo letras numeros y .-_";
   }
+  while($reg2=mysqli_fetch_array($consulta_mysql2)){
+    if($reg2["usuarios_usuario"]==$_POST["nick"]){
+$nickErr = "El nick ".$_POST["nick"]." ya esta en uso pruebe con otro";
+}
+}
 }
 if (empty($_POST["nombre"])) {
   $nombreErr = "Nombre obligatorio";
@@ -155,6 +166,14 @@ if (empty($_POST["pass"]) || empty($_POST["pass2"])) {
    	}else{
            $nifErr = "Nif incorrecto";
    	}
+    $consulta_mysql3=mysqli_query($conexion,"select usuarios_nif from usuarios") or
+    die("Problemas en el select:".mysqli_error($conexion));
+    while($reg3=mysqli_fetch_array($consulta_mysql3)){
+      if($reg3["usuarios_nif"]==$_POST["nif"]){
+  $nifErr = "El usuario con el nif, ".$_POST["nif"]." ya esta registrado";
+  }
+  }
+
      }
 
 
@@ -257,9 +276,7 @@ if (empty($_POST["pass"]) || empty($_POST["pass2"])) {
 
      if($nickErr=="" & $passErr=="" & $passErr2=="" & $nombreErr=="" & $apellido1Err=="" & $apellido2Err=="" & $nifErr=="" & $direccionErr=="" & $cpErr=="" & $poblacionErr=="" & $provinciaErr=="" & $telefonoErr=="" & $emailErr==""){
 
-       require_once('../biblioteca/conexion.php');
-       $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la conexión.");
-         mysqli_set_charset($conexion,"utf8");
+
 
 
 
@@ -341,7 +358,7 @@ if (empty($_POST["pass"]) || empty($_POST["pass2"])) {
 
 
 
-     mysqli_close($conexion);
+
      }
      	?>
 
@@ -351,7 +368,7 @@ if (empty($_POST["pass"]) || empty($_POST["pass2"])) {
 
         <div class="col-md-12 text-center">
           <br><br>
-          <h2 class="bottombrand wow flipInX">ALTA USUARIO</h2>
+          <h2 class="bottombrand wow flipInX">ALTA <b style="color: #f05f40;">USUARIO</b></h2>
           <hr>
       </div>
       <div class="col-md-8 registro">
@@ -401,17 +418,18 @@ if (empty($_POST["pass"]) || empty($_POST["pass2"])) {
             ?>
             <script  type="text/javascript">
 
-/*
+
               setTimeout("redirigir()", 2000);
 
 
             function redirigir(){
               window.location="registro.php";
-            }*/
+            }
             </script>
 
             <?php
             }
+             mysqli_close($conexion);
             ?>
       <br>
 </div>

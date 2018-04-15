@@ -1,3 +1,10 @@
+<?php
+
+
+// Start the session
+session_start();
+
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -67,11 +74,129 @@
   <!-- /.container -->
   </nav>
 
-<div class="container" id="home">
-  <br><br>
-<h2 class="bottombrand wow flipInX">Acceso a <b style="color:#f05f40">zona privada</b></h2><br>
-<p>Acceda a su zona privada para la gestion de sus encargos, subida y descarga de documentacion, informacion del encargo y si aun no es usuario registrese para consultar la informacion de sus encargos.</p>
-<hr/>
+
+  <div class="container" id="home">
+    <br><br>
+  <h2 class="bottombrand wow flipInX">Acceso a <b style="color:#f05f40">zona privada</b></h2><br>
+  <p>Acceda a su zona privada para la gestion de sus encargos, subida y descarga de documentacion, informacion del encargo y si aun no es usuario registrese para consultar la informacion de sus encargos.</p>
+  <hr/>
+
+
+  <?php
+  $usuarioErr =$passErr = "";
+  $usuario = $pass = "";
+  require_once('biblioteca/conexion.php');
+  $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la conexión.");
+
+
+
+  if(!empty($_GET['usuario']) & !empty($_GET['pass'])){
+
+    mysqli_set_charset($conexion,"utf8");
+    $registros=mysqli_query($conexion,"select usuarios_usuario,usuarios_pass,usuarios_bloqueado,usuarios_perfil
+                          from usuarios where (usuarios_usuario like '$_GET[usuario]' or usuarios_email like '$_GET[usuario]')") or die("Problemas en el select:".mysqli_error($conexion));
+    $numero=mysqli_affected_rows($conexion);//cuenta el numero de lineas del array
+
+    $_SESSION["usuario"] = $_GET['usuario'];
+
+
+      $contra=$_GET["pass"];
+
+  }else if(!empty($_REQUEST['usuario']) & !empty($_REQUEST['pass'])){
+
+    $_SESSION["usuario"] = $_REQUEST['usuario'];
+
+
+  mysqli_set_charset($conexion,"utf8");
+  $registros=mysqli_query($conexion,"select usuarios_usuario,usuarios_pass,usuarios_bloqueado,usuarios_perfil
+                        from usuarios where (usuarios_usuario like '$_REQUEST[usuario]' or usuarios_email like '$_REQUEST[usuario]')") or
+  die("Problemas en el select:".mysqli_error($conexion));
+  $numero=mysqli_affected_rows($conexion);//cuenta el numero de lineas del array
+
+
+  $contra=md5($_REQUEST["pass"]);
+
+
+  }else {
+
+
+?>
+<div class="alert alert-danger alert-dismissible fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>¡Atencion!</strong> Inserte usuario y contraseña.
+  </div>
+<?php
+
+
+
+
+
+    session_unset();
+    session_destroy();//Literalmente la destruimos
+
+  }
+
+
+
+if((!empty($_REQUEST['usuario']) & !empty($_REQUEST['pass'])) || (!empty($_GET['usuario']) & !empty($_GET['pass']))){
+  while ($reg = mysqli_fetch_array($registros))
+  {
+
+  if($reg['usuarios_pass']==$contra & $reg['usuarios_bloqueado']==0){
+
+  $_SESSION["perfil"] = $reg['usuarios_perfil'];
+    $_SESSION["pass"] = $reg['usuarios_pass'];
+      header('Location: privado/menu.php');
+
+  }else if ($reg['usuarios_bloqueado']==1){
+    ?>
+    <div class="alert alert-danger alert-dismissible fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>¡Atencion!</strong> Usuario bloqueado. Pongase en contacto para desbloquearlo
+      </div>
+    <?php
+          session_unset();
+          session_destroy();//Literalmente la destruimos
+  }else{
+    ?>
+    <div class="alert alert-danger alert-dismissible fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>¡Atencion!</strong> La contraseña no es correcta.
+      </div>
+    <?php
+
+                  session_unset();
+                  session_destroy();//Literalmente la destruimos
+
+                }
+
+      }
+
+      if($numero==0){
+
+        ?>
+        <div class="alert alert-danger alert-dismissible fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>¡Atencion!</strong> El usuaruio introducido no exixte.
+          </div>
+        <?php
+
+        session_unset();
+        session_destroy();//Literalmente la destruimos
+
+      }
+
+}
+  ?>
+
+
+
+
+
+
+
+
+
 
 <form class="form-horizontal" role="form" id="form1" name="form1" method="post" action="logeo.php">
 

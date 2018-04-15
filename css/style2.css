@@ -122,6 +122,19 @@ padding-top: 3%;
 .registro li:first-child{
   border-top:1px solid #f05f40;
 }
+.errorlog{
+  border:1px solid rgb(247, 56, 56);
+  background-color: rgb(247, 56, 56);
+  color:white;
+  height: 50px;
+  padding-left: 2%;
+  padding-top:7px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+#privadaErr{
+  padding-bottom: 250px;
+}
 @media(max-width:768px) {
   .social{
     float:left;
@@ -137,6 +150,9 @@ margin-bottom: 5%;
     width: 90%;
     margin-left: 5%;
 
+  }
+  #privadaErr{
+    padding-bottom: 20px;
   }
 }
 @media(min-width:992px) {}
