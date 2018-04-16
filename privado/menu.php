@@ -160,8 +160,29 @@ session_start();
         </li>
       </ul>
   		<ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="" id="ini" style="margin-left:5px;">Mi cuenta <span class="glyphicon glyphicon-user"></spam><span class="caret"></span></a>
+      <ul class="dropdown-menu">
         <li>
-    <a class="page-scroll" href="cuenta.php" id="ini" style="margin-left:5px;">Mi cuenta <span class="glyphicon glyphicon-user"></spam></a>
+          <a class="page-scroll" href="verdatos.php" id="ini" ><span class="glyphicon glyphicon-user" ></spam><em style="font-family:Century Gothic;"><?php echo " Usuario: ".$_SESSION["usuario"]." "; ?></em></a>
+        </li>
+        <li>
+          <a class="page-scroll" href="verdatos.php" id="ini"><span class="glyphicon glyphicon-list-alt" ></spam><em style="font-family:Century Gothic;"><?php echo " Perfil: ".$_SESSION["perfil"]; ?></em></a>
+        </li>
+        <hr>
+          <li>
+            <a class="page-scroll" href="verdatos.php" id="ini">Consultar datos</a>
+          </li>
+        <li>
+        <a class="page-scroll" href="moddatos.php" id="ini">Modificar datos</a>
+        </li>
+        <li>
+        <a class="page-scroll" href="modpass.php" id="ini">Modificar contraseña</a>
+        </li>
+
+      </ul>
+
+
         </li>
   			<li>
   	<a class="page-scroll" href="../salir.php" id="ini" style="margin-left:5px;">Salir <span class="glyphicon glyphicon-log-out"></spam></a>
@@ -242,12 +263,19 @@ session_start();
 <!-- jQuery -->
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+
 <script src="../privado/js/parallax.js"></script>
 <script src="../js/contact.js"></script>
 <script src="../js/countto.js"></script>
 <script src="../js/jquery.easing.min.js"></script>
 <script src="../js/wow.min.js"></script>
 <script src="../js/common.js"></script>
+
+
+
+
+
+
 <script src="../js/localizacion.js"></script>
 </body>
 </html>

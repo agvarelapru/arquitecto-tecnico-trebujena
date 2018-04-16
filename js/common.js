@@ -2,11 +2,11 @@
 // SmoothScroll for websites v1.3.8 (Balazs Galambosi)
 // Licensed under the terms of the MIT license.
 //
-// You may use it in your theme if you credit me. 
+// You may use it in your theme if you credit me.
 // It is also free to use on any individual website.
 //
 // Exception:
-// The only restriction would be not to publish any  
+// The only restriction would be not to publish any
 // extension for browsers or native application
 // without getting a written permission first.
 //
@@ -45,12 +45,12 @@ this.options)});b._afterUpdate&&b._afterUpdate(a,b._groups)};b._update=function(
         target: '.navbar-fixed-top',
         offset: 51
     })
-
+/*
     // Closes the Responsive Menu on Menu Item Click
     $('.navbar-collapse ul li a').click(function() {
         $('.navbar-toggle:visible').click();
     });
-
+*/
 
 
     // Offset for Main Navigation
