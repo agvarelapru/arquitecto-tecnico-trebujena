@@ -140,16 +140,29 @@ session_start();
    <!-- Collect the nav links, forms, and other content for toggling -->
    <div class="collapse navbar-collapse navbar-ex1-collapse" >
      <ul class="nav navbar-nav navbar-left">
-       <li class="page-scroll"><a class="dropdown-scroll"  href="menu.php">Inicio </a>
+       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Inicio <span class="caret"></span></a>
 
-
+       <ul class="dropdown-menu">
+           <li>
+             <a class="page-scroll" href="../index.html" id="ini">Inicio</a>
+           </li>
+         <li>
+         <a class="page-scroll" href="../nosotros.html" id="ini">Quien soy</a>
+         </li>
+         <li>
+         <a class="page-scroll" href="../servicios.html" id="ini">Servicios</a>
+         </li>
+         <li>
+         <a class="page-scroll" href="../trabajos.html" id="ini">Trabajos</a>
+         </li>
+       </ul>
        </li>
        <li>
        <a class="page-scroll" href="../contacto.html" id="ini">Contacto</a>
        </li>
      </ul>
      <ul class="nav navbar-nav navbar-right">
-       <li class="dropdown">
+       <li class="dropdown" >
    <a class="dropdown-toggle" data-toggle="dropdown" href="" id="ini" style="margin-left:5px;">Mi cuenta <span class="glyphicon glyphicon-user"></spam><span class="caret"></span></a>
      <ul class="dropdown-menu">
        <li>
@@ -162,7 +175,7 @@ session_start();
          <li>
            <a class="page-scroll" href="verdatos.php" id="ini">Consultar datos</a>
          </li>
-       <li>
+       <li >
        <a class="page-scroll" href="moddatos.php" id="ini">Modificar datos</a>
        </li>
        <li>
@@ -185,7 +198,7 @@ session_start();
  </nav>
 
 
-<br><br>
+
 
 <?php
 
@@ -200,183 +213,102 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
 
 <!-- Section Contact
 ================================================== -->
+<br><br>
 
 
 
+<!-- Section Contact
+================================================== -->
+<br><br>
 
 
     <div class="container">
         <div class="section-title text-center">
-          <h2 class="bottombrand wow flipInX">Datos cuenta usuario: <b style="color: #f05f40;"><?php echo " ".$_SESSION["usuario"]." "; ?></b></h2>
+          <h2 class="bottombrand wow flipInX">Modificar contraseña usuario: <b style="color: #f05f40;"><?php echo " ".$_SESSION["usuario"]." "; ?></b></h2>
           <hr class="primary">
       		<p>
-      			Desde esta pagina puedes consultar tus datos de registros y acceder para modificarlos o darte de baja de la cuenta.
+      			Desde esta pagina puedes modificar tu contraseña.
       		</p>
       </div>
 </div>
-
+<br>
 
 <div class="col-md-8 registro">
 
 
-<?php
-
-$consulta_mysql=mysqli_query($conexion,"select * from usuarios where usuarios_usuario='".$_SESSION["usuario"]."'") or
-die("Problemas en el select:".mysqli_error($conexion));
-
-
-while($reg=mysqli_fetch_array($consulta_mysql)){
-
- ?>
 
 
 
-    <form method="post" action="moddatos.php" id="contactform" >
 
-      <div class="form-group">
-        <label for="nick">Usuario</label>
-        <input  class="form-control" disabled type="text" name="nick" id="nick" placeholder="Usuario" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca nombre de usuario .-_A-Za-z0-9 ñÑ" required autofocus value="<?php echo $reg['usuarios_usuario'];?>"/>
-      </div>
-      <div class="row">
-          <div class="col-md-6">
-      <div class="form-group">
-        <label for="pass">Contraseña</label>
-        <input  class="form-control" disabled type="password"  name="pass" id="pass"  placeholder="Contraseña" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca contraseña .-_A-Za-z0-9 ñÑ" required value="<?php echo $reg['usuarios_pass'];?>"/>
-    </div>
-      </div>
-      <div class="col-md-6">
-
-    <input  class="contact submit btn btn-primary btn-xl" type="submit" id="enviar" name="modpass" formaction="/modpass.php" value="Modificar contraseña" style="margin-top:6%;float:right;"/>
+    <form method="post" action="passmodificada.php" id="contactform" >
 
 
-    </div>
-    </div>
 
-<br><br>
+
+
+
 
 <fieldset>
-<legend>Datos personales</legend>
-        <div class="row">
-            <div class="col-md-6">
+<legend>Nueva contraseña</legend>
+
+<div class="row">
+    <div class="col-md-12">
+<div class="form-group">
+  <label for="pass">Contraseña actual</label>
+
+<input  class="form-control"  type="password"  name="passvieja" id="passvieja"  placeholder="Contraseña" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca contraseña .-_A-Za-z0-9 ñÑ" required />
+<br>
+  <label for="pass">Contraseña nueva</label>
+  <input  class="form-control" type="password"  name="pass" id="pass"  placeholder="Contraseña" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca contraseña .-_A-Za-z0-9 ñÑ" required />
+<label for="pass2" id="error">Repita Contraseña nueva</label>
+  <input  class="form-control" type="password"  name="pass2" id="pass2"  placeholder="Contraseña" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca contraseña .-_A-Za-z0-9 ñÑ" required />
+  <h5 id="error"></h5>
+</div>
+</div>
+
+</div>
 
 
 
-                <div class="form-group">
-                  <label for="nombre">Nombre</label>
-                  <input  class="form-control" disabled type="text" name="nombre" id="nombre" placeholder="Nombre" pattern="[ A-Za-z ñÑ]{1,50}"  title="Introduzca nombre"  required value="<?php echo $reg['usuarios_nombre'];?>"/>
-                </div>
-                <div class="form-group">
-                  <label for="apellido1">Apellido 1</label>
-                  <input class="form-control" disabled type="text" name="apellido1" id="apellido1" placeholder="Apellido 1" pattern="[ A-Za-z ñÑ]{1,50}"  title="Introduzca el apellido 1"   required value="<?php echo $reg['usuarios_apellido1'];?>"/>
-                </div>
-                <div class="form-group">
-                  <label for="apellido2">Apellido 2</label>
-                  <input class="form-control" disabled type="text" name="apellido2" id="apellido2" placeholder="Apellido 2" pattern="[ A-Za-z ñÑ]{1,50}"  title="Introduzca el apellido 2"  required value="<?php echo $reg['usuarios_apellido2'];?>"/>
-                </div>
-                <div class="form-group">
-                  <label for="nif">NIF</label>
-                  <input class="form-control" disabled type="text" name="nif" id="nif" placeholder="NIF" pattern="(([X-Zx-z]{1})([-]?)(\d{7})([-]?)([A-Za-z]{1}))|((\d{8})([-]?)([A-Za-z]{1}))|(([A-Za-z]{1})(\d{8}))"  title="Introduzca su NIF 00000000A"  required value="<?php echo $reg['usuarios_nif'];?>"/>
-                </div>
-                <div class="form-group">
-                  <label for="direccion">Direccion</label>
-                  <input class="form-control" disabled type="text" name="direccion" id="direccion" placeholder="Direccion" pattern="[ A-Za-zñÑ0-9,./-]{1,100}"  title="Introduzca la Direccion A-Z 0-9 ,.-/"  required value="<?php echo $reg['usuarios_direccion'];?>"/>
-                </div>
-
-
-
-
-            </div>
-            <div class="col-md-6">
-
-
-
-                <div class="form-group">
-                  <label for="cp">Codigo postal</label>
-                  <input class="form-control" disabled type="text" name="cp" id="cp" placeholder="CP" pattern="[0-9]{5}"  title="Introduzca su codigo postal"  required value="<?php echo $reg['usuarios_cp'];?>"/>
-                </div>
-                <div class="form-group">
-                  <label for="provincia" id="provi">Provincia</label>
-
-
-                  <?php
-
-                  $consulta_mysql=mysqli_query($conexion,"select * from provincias") or
-                  die("Problemas en el select:".mysqli_error($conexion));
-
-
-                  while($reg3=mysqli_fetch_array($consulta_mysql)){
-
-if($reg3["id"]==$reg['usuarios_provincia']){
-?>
-
-<input class="form-control" disabled type="text" name="provincia" id="provincia" placeholder="Provincia" pattern="[0-9]{5}"  title="Introduzca su provincia"  required value="<?php echo $reg3['provincia'];?>"/>
-<?php
-
-}
-
-
-                  }
-                  ?>
-                            </select>
-
-
-
-                </div>
-
-                <div class="form-group">
-                  <label for="poblacion" id="pobla" >Poblacion</label>
-
-
-
-										<?php
-
-										$consulta_mysql2=mysqli_query($conexion,"select * from municipios") or
-										die("Problemas en el select:".mysqli_error($conexion));
-
-
-										while($reg2=mysqli_fetch_array($consulta_mysql2)){
-
-											if($reg2["id"]==$reg['usuarios_poblacion']){
-
-                        ?>
-
-                        <input class="form-control" disabled type="text" name="poblacion" id="poblacion" placeholder="Poblacion" pattern="[0-9]{5}"  title="Introduzca su poblacion"  required value="<?php echo $reg2['municipio'];?>"/>
-                        <?php
-
-											}
-
-
-
-										}
-										?>
-
-
-                            </select>
-
-
-
-                </div>
-                <div class="form-group">
-                  <label for="telefono">Telefono</label>
-                  <input class="form-control" disabled type="text" name="telefono" id="telefono" placeholder="Telefono" pattern="[0-9]{9}"  title="Introduzca su numero de telefono"  required value="<?php echo $reg['usuarios_telefono'];?>"/>
-                </div>
-
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input class="form-control" disabled type="email" name="email" id="email" placeholder="correo@ejemplo.com" required pattern= "[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="Introduzca este formato correo@ejemplo.com" value="<?php echo $reg['usuarios_email'];?>"/>
-                </div>
-
-
-
-
-            </div>
-        </div>
   </fieldset>
   <br>
         <div class="text-right">
 
-          <input  class="contact submit btn btn-primary btn-xl" type="submit" id="enviar" name="registrar" value="Modificar datos"/>
+          <button  class="contact submit btn btn-primary btn-xl" data-toggle="modal" data-target="#myModal"  type="button" id="modificar" name="modificar"  value="Modificar datos"/>Modificar contraseña</button>
         </div>
+
+
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header" style="background-color: #282f35;">
+                <button type="button" class="close" data-dismiss="modal" style="color:white;font-weight:bold;">&times;</button>
+                <h3 class="modal-title" style="color:white;font-weight:bold;">¡Atencion!</h3>
+              </div>
+              <div class="modal-body" >
+                <p style="color:black;">¿Esta seguro de modificar su contraseña <spam style="color: #f05f40;"><?php echo " ".$_SESSION["usuario"]; ?></spam>?</p>
+              </div>
+              <div class="modal-footer" >
+
+
+                <button type="submit" class="btn btn-primary" style="float:left;">Modificar</button>
+                </form>
+
+
+                <button type="button" class="btn btn-primary" data-dismiss="modal" style="float:left;margin-left:7%;">Cancelar</button>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
     </form>
 </div>
 
@@ -416,9 +348,7 @@ if($reg3["id"]==$reg['usuarios_provincia']){
 
 
 
-<?php
-}
- ?>
+
 
 
 

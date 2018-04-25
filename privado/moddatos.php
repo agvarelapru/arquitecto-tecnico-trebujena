@@ -162,7 +162,7 @@ session_start();
        </li>
      </ul>
      <ul class="nav navbar-nav navbar-right">
-       <li class="dropdown">
+       <li class="dropdown" >
    <a class="dropdown-toggle" data-toggle="dropdown" href="" id="ini" style="margin-left:5px;">Mi cuenta <span class="glyphicon glyphicon-user"></spam><span class="caret"></span></a>
      <ul class="dropdown-menu">
        <li>
@@ -175,7 +175,7 @@ session_start();
          <li>
            <a class="page-scroll" href="verdatos.php" id="ini">Consultar datos</a>
          </li>
-       <li>
+       <li >
        <a class="page-scroll" href="moddatos.php" id="ini">Modificar datos</a>
        </li>
        <li>
@@ -248,11 +248,14 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 
 
 
-    <form method="post" action="moddatos.php" id="contactform" >
+    <form method="post" action="datosmodificados.php" id="contactform" >
 
       <div class="form-group">
         <label for="nick">Usuario</label>
+        <input  class="form-control"  type="hidden" name="id" id="id" placeholder="id" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="id" required autofocus value="<?php echo $reg['usuarios_id'];?>"/>
+
         <input  class="form-control"  type="text" name="nick" id="nick" placeholder="Usuario" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca nombre de usuario .-_A-Za-z0-9 ñÑ" required autofocus value="<?php echo $reg['usuarios_usuario'];?>"/>
+
       </div>
       <div class="row">
           <div class="col-md-6">
@@ -264,7 +267,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
       </div>
       <div class="col-md-6">
 
-    <input  class="contact submit btn btn-primary btn-xl" type="submit" id="enviar" name="modpass" formaction="/modpass.php" value="Modificar contraseña" style="margin-top:6%;float:right;"/>
+    <input  class="contact submit btn btn-primary btn-xl" type="submit" id="enviar" name="modpass" formaction="modpass.php" value="Modificar contraseña" style="margin-top:6%;float:right;"/>
 
 
     </div>
@@ -351,7 +354,7 @@ if($reg3["id"]==$reg['usuarios_provincia']){
 
 										<?php
 
-										$consulta_mysql2=mysqli_query($conexion,"select * from municipios") or
+										$consulta_mysql2=mysqli_query($conexion,"select * from municipios  where provincia_id='".$reg["usuarios_provincia"]."'") or
 										die("Problemas en el select:".mysqli_error($conexion));
 
 
@@ -393,10 +396,43 @@ if($reg3["id"]==$reg['usuarios_provincia']){
   </fieldset>
   <br>
         <div class="text-right">
-<input  class="contact submit btn btn-primary btn-xl" style="float:left" type="submit" id="baja"  name="baja" formaction="/bajacuenta.php" value="Darse de baja"/>
+<input  class="contact submit btn btn-primary btn-xl"   style="float:left" type="submit" id="baja"  name="baja" formaction="/bajacuenta.php" value="Darse de baja"/>
 
-          <input  class="contact submit btn btn-primary btn-xl" type="submit" id="modificar" name="modificar" value="Modificar datos"/>
+          <button  class="contact submit btn btn-primary btn-xl" data-toggle="modal" data-target="#myModal"  type="button" id="modificar" name="modificar"  value="Modificar datos"/>Modificar datos</button>
         </div>
+
+
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header" style="background-color: #282f35;">
+                <button type="button" class="close" data-dismiss="modal" style="color:white;font-weight:bold;">&times;</button>
+                <h3 class="modal-title" style="color:white;font-weight:bold;">¡Atencion!</h3>
+              </div>
+              <div class="modal-body" >
+                <p style="color:black;">¿Esta seguro de modificar sus datos <spam style="color: #f05f40;"><?php echo " ".$_SESSION["usuario"]; ?></spam>?</p>
+              </div>
+              <div class="modal-footer" >
+
+
+                <button type="submit" class="btn btn-primary" style="float:left;">Modificar</button>
+                </form>
+
+
+                <button type="button" class="btn btn-primary" data-dismiss="modal" style="float:left;margin-left:7%;">Cancelar</button>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
     </form>
 </div>
 

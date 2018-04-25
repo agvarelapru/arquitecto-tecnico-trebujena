@@ -135,6 +135,23 @@ padding-top: 3%;
 #privadaErr{
   padding-bottom: 250px;
 }
+#buscar{
+  width:70%;
+  margin-left: 15%;
+}
+#buscar2{
+  width:50%;
+  margin-left: 25%;
+}
+.list-group-item{
+  background-color: #f05f40;
+
+}
+
+.list-group-item:hover p{
+
+color: #282f35;
+}
 @media(max-width:768px) {
   .social{
     float:left;
@@ -154,7 +171,12 @@ margin-bottom: 5%;
   #privadaErr{
     padding-bottom: 20px;
   }
+  #buscar{
+    width:90%;
+    margin-left: 5%;
+  }
 }
+
 @media(min-width:992px) {}
   #social3{
     margin-top:3%;

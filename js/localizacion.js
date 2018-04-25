@@ -29,7 +29,7 @@ function myMap() {
 
 window.onload = function(){
 document.getElementById("pass").addEventListener('blur',comprueba,false);
-document.getElementById("pass2").addEventListener('blur',comprueba,false);
+document.getElementById("pass2").addEventListener('keyup',comprueba,false);
 document.getElementById("provincia").addEventListener('change',muestraMunicipios,false);
 
   document.getElementById("enviar").addEventListener('click',pass,false);
