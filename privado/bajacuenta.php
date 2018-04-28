@@ -7,7 +7,7 @@
 
 
 
-
+echo $_POST["id"];
          if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
            if (empty($_POST["id"])) {
@@ -64,8 +64,9 @@
                mysqli_set_charset($conexion,"utf8");
 
 
-    mysqli_query($conexion,"delete from usuarios where usuarios_id=".$_REQUEST['id'])
-    or die("Problemas en el select".mysqli_error($conexion));
+               mysqli_query($conexion, "update usuarios set usuarios_bloqueado='1' where usuarios_id='$_REQUEST[id]'") or die("Problemas en el select:".mysqli_error($conexion));
+
+
 
 
 
@@ -75,7 +76,7 @@
 <br><br>
 <div class="container">
 <div class="section-title text-center">
-  <h2 class="bottombrand wow flipInX">Ha sido eliminado el usuario: <b style="color: #f05f40;"><?php echo " ".$_REQUEST["nick"]." "; ?></b></h2>
+  <h2 class="bottombrand wow flipInX">Ha sido dada de baja la cuenta del usuario: <b style="color: #f05f40;"><?php echo " ".$_REQUEST["nick"]." "; ?></b></h2>
   <hr class="primary">
   <p>
 
@@ -84,7 +85,7 @@
 <br><br><br>
   <div class="alert alert-success alert-dismissible fade in">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>¡Bien!</strong> El usuario ha sido eliminado correctamente
+      <strong>¡Bien!</strong> El usuario ha sido dado de baja correctamente
     </div>
 
 </div>
@@ -101,7 +102,7 @@ session_destroy();//Literalmente la destruimos
 <br><br>
 <div class="container">
   <div class="section-title text-center">
-    <h2 class="bottombrand wow flipInX">Eliminacion de usuario: <b style="color: #f05f40;"><?php echo " ".$_REQUEST["nick"]." "; ?></b></h2>
+    <h2 class="bottombrand wow flipInX">Baja del usuario: <b style="color: #f05f40;"><?php echo " ".$_REQUEST["nick"]." "; ?></b></h2>
     <hr class="primary">
     <p>
 
@@ -109,7 +110,7 @@ session_destroy();//Literalmente la destruimos
 
     <div class="alert alert-danger alert-dismissible fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>¡Upss!</strong> El usuario no ha sido eliminado
+        <strong>¡Upss!</strong> El usuario no ha sido dado de baja
       </div>
 <p><?php echo $idErr; ?></p>
 <p><?php echo $nickErr; ?></p>

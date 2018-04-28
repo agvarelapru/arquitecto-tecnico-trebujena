@@ -525,7 +525,7 @@ if($reg["id"]==$_SESSION['provincia']){
 <script src="../js/jquery.easing.min.js"></script>
 <script src="../js/wow.min.js"></script>
 <script src="../js/common.js"></script>
-<script src="../js/localizacion.js"></script>
+<script src="../js/localizacion2.js"></script>
 
 </body>
 </html>

@@ -287,10 +287,10 @@ if (empty($_POST["pass"]) || empty($_POST["pass2"])) {
 
        include '../biblioteca/qr-code/phpqrcode/qrlib.php';
       // El nombre del fichero que se generará (una imagen PNG).
-      $file ='../img/qr/qr_'.$_REQUEST['nick'].'.png';
+      $file ='img/qr/qr_'.$_REQUEST['nick'].'.png';
       // La data que llevará.
-      $data = 'https://www.arquitecto-tecnico-trebujena.es/logeo.php?usuario='.$nick.'&pass='.$contra;
-
+      //$data = 'https://www.arquitecto-tecnico-trebujena.es/logeo.php?usuario='.$nick.'&pass='.$contra;
+ $data = 'https://www.arquitecto-tecnico-trebujena.es/logeo.php?usuario='.$nick.'&pass='.$contra;
       // Y generamos la imagen.
       QRcode::png($data, $file);
 
@@ -319,13 +319,13 @@ if (empty($_POST["pass"]) || empty($_POST["pass2"])) {
                      <hr Style="border: 2px solid #f05f40;  width:7%;">
                      <h4 Style="text-align:center">Hola gracias por acceder a nuestra pagina pulse el boton que esta a continuacion para confirmar el alta.</h4>
 
-                            <a Style="background-color: #f05f40; border: none;  color: white; text-align: center;  text-decoration: none;  display: inline-block; font-size: 16px; margin-left: 35%; cursor: pointer;  width: 30%;  padding-top: 5px; padding-bottom: 5px;  margin-right: 35%; "  href="http://www.agvarelapru.esy.es/FORMULARIO-1/agregar/desbloqueo.php?nick='.$nick.'&pass='.$contra.'" >Confirmar registro</a>
+                            <a Style="background-color: #f05f40; border: none;  color: white; text-align: center;  text-decoration: none;  display: inline-block; font-size: 16px; margin-left: 35%; cursor: pointer;  width: 30%;  padding-top: 5px; padding-bottom: 5px;  margin-right: 35%; "  href="https://www.arquitecto-tecnico-trebujena.es/registro/desbloqueo.php?nick='.$nick.'&pass='.$contra.'" >Confirmar registro</a>
 
                              <h4 Style="text-align:center">Una vez confirmada la cuenta puedes acceder con el siguiente codigo QR:</h4>
                            <div Style="  height:320px;  border:2px solid #f05f40;  margin-left: auto; text-align: center;background-color: white;color:black;">
 
-                                <div Style=" background-color:#282f35; height:40px; text-align:left; font-size:1.5em;color:white;padding:3px 10px;"><a Style="background-color: #282f35; border: none;  color: white; text-align: left;  text-decoration: none;  display: inline-block; font-size: 1em; margin-left: 1%; cursor: pointer;  width: 100%;  padding-top: 4px; padding-bottom: 3px; "  href="http://www.agvarelapru.esy.es/FORMULARIO-1" ><spam style="color:#f05f40;">a</spam>rquitecto tecnico-Trebujena</a></div><br>
-                                    <div Style="width:80%;margin-left:10%;"><img src="https://www.arquitecto-tecnico-trebujena.es/img/qr'.$file.'" alt="Codigo QR"></div>
+                                <div Style=" background-color:#282f35; height:40px; text-align:left; font-size:1.5em;color:white;padding:3px 10px;"><a Style="background-color: #282f35; border: none;  color: white; text-align: left;  text-decoration: none;  display: inline-block; font-size: 1em; margin-left: 1%; cursor: pointer;  width: 100%;  padding-top: 4px; padding-bottom: 3px; "  href="https://www.arquitecto-tecnico-trebujena.es" ><b style="color:#f05f40;">a</b>rquitecto tecnico-Trebujena</a></div><br>
+                                    <div Style="width:80%;margin-left:10%;"><img src="https://www.arquitecto-tecnico-trebujena.es/registro/'.$file.'" alt="Codigo QR"></div>
                                     <h4><u>Usuario</u></h4>
                                     <h4>'.$nick.'</h4>
                                  </div>
@@ -408,7 +408,7 @@ if (empty($_POST["pass"]) || empty($_POST["pass2"])) {
 
             if($nickErr=="" & $passErr=="" & $passErr2=="" & $nombreErr=="" & $apellido1Err=="" & $apellido2Err=="" & $nifErr=="" & $direccionErr=="" & $cpErr=="" & $poblacionErr=="" & $provinciaErr=="" & $telefonoErr=="" & $emailErr==""){
 
-            echo "<img  src='../img/qr/qr_".$_REQUEST['nick'].".png'>";
+            echo "<img  src='img/qr/qr_".$_REQUEST['nick'].".png'>";
             echo "<h3 class='envio'> El usuario fue dado de alta correctamente. </h3>";
             echo "<h4 class='envio'> Compruebe su cuenta de correo para confirmar la cuenta. </h4>";
             session_unset();

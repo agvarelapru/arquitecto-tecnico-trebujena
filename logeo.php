@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 
 // Start the session
 session_start();
@@ -108,8 +108,7 @@ session_start();
 
 
   mysqli_set_charset($conexion,"utf8");
-  $registros=mysqli_query($conexion,"select usuarios_usuario,usuarios_pass,usuarios_bloqueado,usuarios_perfil,usuarios_email
-                        from usuarios where (usuarios_usuario like '$_REQUEST[usuario]' or usuarios_email like '$_REQUEST[usuario]')") or
+  $registros=mysqli_query($conexion,"select * from usuarios where (usuarios_usuario like '$_REQUEST[usuario]' or usuarios_email like '$_REQUEST[usuario]')") or
   die("Problemas en el select:".mysqli_error($conexion));
   $numero=mysqli_affected_rows($conexion);//cuenta el numero de lineas del array
 
@@ -144,10 +143,11 @@ if((!empty($_REQUEST['usuario']) & !empty($_REQUEST['pass'])) || (!empty($_GET['
 
   if($reg['usuarios_pass']==$contra & $reg['usuarios_bloqueado']==0){
 
+$_SESSION["id"] = $reg['usuarios_id'];
   $_SESSION["perfil"] = $reg['usuarios_perfil'];
     $_SESSION["pass"] = $reg['usuarios_pass'];
     $_SESSION["email"] = $reg['usuarios_email'];
-      header('Location: privado/menu.php');
+      header('Location: pagina.php');
 
   }else if ($reg['usuarios_bloqueado']==1){
     ?>
@@ -287,3 +287,6 @@ if((!empty($_REQUEST['usuario']) & !empty($_REQUEST['pass'])) || (!empty($_GET['
 
 </body>
 </html>
+<?php
+ob_end_flush();
+?>

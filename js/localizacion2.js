@@ -1,20 +1,7 @@
 
 /* funcion pra obtener coordenadas de localizacion*/
 
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                alert("Geolocalizacion no soportada por su navegador.");
-                document.getElementById("latitud").value=0;
-                document.getElementById("longitud").value=0;
-            }
-        }
 
-        function showPosition(position) {
-    document.getElementById("latitud").value=position.coords.latitude;
-    document.getElementById("longitud").value=position.coords.longitude;
-    }
 
 /*
 function myMap() {
@@ -28,13 +15,9 @@ function myMap() {
 */
 
 window.onload = function(){
-
 document.getElementById("pass").addEventListener('blur',comprueba,false);
 document.getElementById("pass2").addEventListener('keyup',comprueba,false);
-
-
 document.getElementById("provincia").addEventListener('change',muestraMunicipios,false);
-
   document.getElementById("enviar").addEventListener('click',pass,false);
 
     }
@@ -49,19 +32,14 @@ var pass2=document.getElementById('pass2').value;
 
 if(pass!=pass2){
 document.getElementById('error').style.color='#f05f40';
-  document.getElementById('error').innerHTML="Repetir Contraseña   <IMG SRC='img/error.png'>";
+  document.getElementById('error').innerHTML="Repetir Contraseña   <IMG SRC='../img/error.png'>";
 
 }else{
 document.getElementById('error').style.color='#f05f40';
-  document.getElementById('error').innerHTML="Repetir Contraseña   <IMG SRC='img/bien.png'>";
+  document.getElementById('error').innerHTML="Repetir Contraseña   <IMG SRC='../img/bien.png'>";
 
 }
 }
-
-
-
-
-
 
 /* ajax para mostrar municipios */
 
@@ -101,7 +79,7 @@ document.getElementById('provi').style.color='#f05f40';
   document.getElementById('pobla').style.color='#f05f40';
            }
        };
-       xmlhttp.open("GET","biblioteca/poblaciones.php?q="+str,true);
+       xmlhttp.open("GET","../biblioteca/poblaciones.php?q="+str,true);
        xmlhttp.send();
 
    }

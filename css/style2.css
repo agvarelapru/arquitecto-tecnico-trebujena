@@ -148,9 +148,15 @@ padding-top: 3%;
 
 }
 
-.list-group-item:hover p{
+.list-group-item:hover{
+border-color:#f05f40;
 
-color: #282f35;
+}
+.list-group-item:hover p{
+color: #f05f40;
+}
+.list-group-item:hover h4{
+color: #f05f40;
 }
 @media(max-width:768px) {
   .social{

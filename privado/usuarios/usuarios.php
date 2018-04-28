@@ -28,12 +28,76 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or
 
 
 
+  $where="";
 
-  $rs_contactos = mysqli_query($conexion, "select * from usuarios where usuarios_usuario LIKE '%".$_SESSION['busqueda']."%' || usuarios_poblacion LIKE '%".$_SESSION['busqueda']."%' || usuarios_email LIKE '%".$_SESSION['busqueda']."%' || usuarios_fecha_alta= '".$_SESSION['busqueda']."'");
+
+    if($_SESSION['user']!=""){
+      $where.=" usuarios_usuario LIKE '%".$_SESSION['user']."%' ";
+
+    }
+    if($_SESSION['poblacion']!=""){
+      if($where==""){
+          $where.=" usuarios_poblacion LIKE '%".$_SESSION['poblacion']."%' ";
+      }else{
+        $where.=" and usuarios_poblacion LIKE '%".$_SESSION['poblacion']."%' ";
+      }
+
+    }
+    if($_SESSION['email']!=""){
+      if($where==""){
+          $where.=" usuarios_email LIKE '%".$_SESSION['email']."%' ";
+      }else{
+        $where.=" and usuarios_email LIKE '%".$_SESSION['email']."%' ";
+      }
+
+    }
+    if($_SESSION['fechaAlta']!=""){
+      if($where==""){
+          $where.="  usuarios_fecha_alta >= '".$_SESSION['fechaAlta']." 00:00:00' ";
+      }else{
+        $where.="  and usuarios_fecha_alta >= '".$_SESSION['fechaAlta']." 00:00:00' ";
+      }
+
+    }
+  $bloqueado;
+
+  if(isset($_SESSION['bloqueado'])){
+    $bloqueado=1;
+    if($where==""){
+      $where.=" usuarios_bloqueado = 1 ";
+    }else{
+      $where.=" and usuarios_bloqueado = 1 ";
+    }
+
+  }else if(empty($_SESSION['bloqueado'])){
+    $bloqueado=0;
+    if($where==""){
+      $where.=" usuarios_bloqueado = 0 ";
+    }else{
+        $where.=" and usuarios_bloqueado = 0 ";
+    }
+
+  }
+
+
+
+
+  $rs_contactos = mysqli_query($conexion, "select * from usuarios where ".$where);
   $num_total_registros = mysqli_num_rows($rs_contactos);
+
+
 if($num_total_registros>0){
+
+
   //Limito la busqueda
-  $TAMANO_PAGINA = 4;
+  if(isset($_REQUEST['numero'])){
+    $_SESSION['numero']=$_REQUEST['numero'];
+    $TAMANO_PAGINA = $_SESSION['numero'];
+  }else{
+
+      $TAMANO_PAGINA =$_SESSION['numero'];
+
+    }
 
   //examino la página a mostrar y el inicio del registro a mostrar
   if(isset($_GET["pagina"])){
@@ -54,7 +118,7 @@ if($num_total_registros>0){
   $total_paginas = ceil($num_total_registros / $TAMANO_PAGINA);
 
 
-  $registros=mysqli_query($conexion,"select usuarios_id, usuarios_nombre,usuarios_apellido1, usuarios_apellido2, usuarios_bloqueado, usuarios_fecha_alta  from usuarios where usuarios_usuario LIKE '%".$_SESSION['busqueda']."%' || usuarios_poblacion LIKE '%".$_SESSION['busqueda']."%' || usuarios_email LIKE '%".$_SESSION['busqueda']."%' || usuarios_fecha_alta= '".$_SESSION['busqueda']."' order by usuarios_fecha_alta  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
+  $registros=mysqli_query($conexion,"select usuarios_id, usuarios_nombre,usuarios_apellido1, usuarios_apellido2, usuarios_bloqueado, usuarios_fecha_alta  from usuarios where".$where." order by usuarios_fecha_alta  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
     die("Problemas en el select:".mysqli_error($conexion));
 
 
@@ -147,20 +211,21 @@ if($num_total_registros>0){
 
   </div>
   <?php
+}else{
+?>
+  <br><br><br>
 
-  }else{
-  ?>
-    <br><br><br>
+       <div class="alert alert-warning alert-dismissible fade in">
+           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+           <strong>¡Vaya!</strong> No se ha encontrado ningun resultado en la busqueda.
+         </div>
 
-         <div class="alert alert-warning alert-dismissible fade in">
-             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-             <strong>¡Vaya!</strong> No se ha encontrado ningun resultado en la busqueda.
-           </div>
+  <br><br><br><br>
 
-    <br><br><br><br>
+<?php
+}
+  mysqli_close($conexion);
 
-  <?php
-  }
 
   ?>
 
