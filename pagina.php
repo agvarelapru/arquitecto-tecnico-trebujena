@@ -12,7 +12,7 @@ if(empty($_SESSION["pass"]) & empty($_SESSION["usuario"]) & empty($_SESSION["per
     require_once 'privado/erroruser.php';
 }else{
   require_once 'privado/header.php';
-  echo "<br><br><br>";
+  //echo "<br><br><br>";
   require_once 'privado/'.$pagina . '.php';
 }
 

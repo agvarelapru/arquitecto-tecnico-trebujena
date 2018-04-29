@@ -18,6 +18,7 @@
 <!-- Custom CSS -->
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <link rel="stylesheet" href="css/style2.css" type="text/css">
+
 </head>
 
 
@@ -32,7 +33,7 @@ $usuario = $pass = $perfil="";
 
 
 ?>
-<bodi id=home>
+<body id=home>
 
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
 <div class="container">
@@ -84,10 +85,10 @@ $usuario = $pass = $perfil="";
 
    <ul class="dropdown-menu">
        <li>
-         <a class="page-scroll" href="?p=mensajes/buscarmensajes" id="ini">Buscar mensajes</a>
+         <a class="page-scroll" href="?p=preguntas/buscarpreguntas" id="ini">Buscar mensajes</a>
        </li>
      <li>
-     <a class="page-scroll" href="?p=mensajes/nuevomensaje" id="ini">Nuevo mensaje</a>
+     <a class="page-scroll" href="?p=preguntas/nuevapregunta" id="ini">Nuevo mensaje</a>
      </li>
 
    </ul>

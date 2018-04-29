@@ -158,6 +158,19 @@ color: #f05f40;
 .list-group-item:hover h4{
 color: #f05f40;
 }
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+
+    background-color: #f05f40;
+    border-color: #f05f40;
+}
+.pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover {
+  color: #f05f40;
+}
+.pagination > li > a:focus, .pagination > li > a, .pagination > li > span:focus, .pagination > li > span {
+
+      color: #282f35;
+}
 @media(max-width:768px) {
   .social{
     float:left;
