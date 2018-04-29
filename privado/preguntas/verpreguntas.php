@@ -69,11 +69,15 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or
   }
 
 
-
+if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
 
   $rs_contactos = mysqli_query($conexion, "select * from preguntas where ".$where);
   $num_total_registros = mysqli_num_rows($rs_contactos);
+}else{
+  $rs_contactos = mysqli_query($conexion, "select * from preguntas where ".$where." and preguntas_usuario='".$_SESSION['usuario']."'");
+  $num_total_registros = mysqli_num_rows($rs_contactos);
 
+}
 
 if($num_total_registros>0){
 
@@ -105,11 +109,14 @@ if($num_total_registros>0){
   }
   //calculo el total de páginas
   $total_paginas = ceil($num_total_registros / $TAMANO_PAGINA);
+if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
 
-
-  $registros=mysqli_query($conexion,"select preguntas_id, preguntas_usuario, preguntas_respondida, preguntas_fecha  from preguntas where".$where." order by preguntas_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
+  $registros=mysqli_query($conexion,"select *  from preguntas where".$where." order by preguntas_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
     die("Problemas en el select:".mysqli_error($conexion));
-
+}else{
+  $registros=mysqli_query($conexion,"select *  from preguntas where".$where." and preguntas_usuario='".$_SESSION['usuario']."' order by preguntas_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
+    die("Problemas en el select:".mysqli_error($conexion));
+}
 
   $cant=0;
   while ($reg = mysqli_fetch_array($registros))
@@ -135,18 +142,17 @@ if($num_total_registros>0){
     </a>
   </div>
   */
-  echo"<form class='form-horizontal'  action='bloquear.php' method='post'>";
+  echo"<form class='form-horizontal'  action='?p=preguntas/borrarmensajes' method='post'>";
   echo "<div style='float:left;margin-top:25px;margin-right:0%; z-index:1'>";
   echo "<input class='form-control' type='checkbox' name='tic[]' id='tic' value='".$reg['preguntas_id']."'>";
   echo "</div>";
   echo "<div class='list-group' style='width:88%; margin-left:6%;'>";
 
-    echo "<a href='?p=preguntas/mostrarp&pregunta_id=".$codigo."' class='list-group-item'>";
-    echo "<h4 class='list-group-item-heading' style='float:left;'>Cod. ".$reg['preguntas_id']."</h4>";
-  echo "<h4 class='list-group-item-heading' style='float:right;'>Respondidaa: ".$respondida."</h4><br><br>";
-  echo    "<p class='list-group-item-text'>Usuario: ".$reg['preguntas_usuario']."</p>";
-    echo  "<p class='list-group-item-text'>Fecha pregunta: ".$reg['preguntas_fecha']."</p>";
-
+    echo "<a href='?p=preguntas/mostrarp&preguntas_id=".$codigo."' class='list-group-item'>";
+    echo "<h4 class='list-group-item-heading' style='float:left;'>Usuario: ".$reg['preguntas_usuario']."</h4>";
+  echo "<h4 class='list-group-item-heading' style='float:right;'>Respondida: ".$respondida."</h4><br><br>";
+    echo  "<p class='list-group-item-text'>Fecha del mensaje: ".$reg['preguntas_fecha']."</p>";
+echo  "<p class='list-group-item-text'>Asunto: ".$reg['preguntas_asunto']."</p>";
     echo "</a>";
 
   echo "</div>";
@@ -160,7 +166,40 @@ if($num_total_registros>0){
 
   $cant++;
   }
-  ?><input class="btn btn-primary" type="submit" name="buscar" id="buscar2" value="Bloquear" >
+  ?><button class="contact submit btn btn-primary btn-xl" style="float:right;" data-toggle="modal" data-target="#myModal"  type="button" name="eliminar" id="eliminar" value="Borrar mensajes" >Borrar mensajes</button>
+
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #282f35;">
+          <button type="button" class="close" data-dismiss="modal" style="color:white;font-weight:bold;">&times;</button>
+          <h3 class="modal-title" style="color:white;font-weight:bold;">¡Atencion!</h3>
+        </div>
+        <div class="modal-body" >
+          <p style="color:black;">¿Esta seguro de eliminar los mensajes?</p>
+
+        </div>
+        <div class="modal-footer" >
+
+
+          <button type="submit" class="btn btn-primary" style="float:left;">Eliminar</button>
+          </form>
+
+
+          <button type="button" class="btn btn-primary" data-dismiss="modal" style="float:left;margin-left:7%;">Cancelar</button>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
   </form>
   <?php
   $self="?p=preguntas/verpreguntas";

@@ -26,7 +26,7 @@
     <![endif]-->
 </head>
 
-<body id="home" onload="getLocation()">
+<body id="home">
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
 <div class="container">
 	<!-- Brand and toggle get grouped for better mobile display -->
@@ -73,97 +73,154 @@
 </nav>
 
 
+<?php
+require_once('biblioteca/conexion.php');
+$conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la conexión.");
+  mysqli_set_charset($conexion,"utf8");
 
-<!-- Section Contact
-================================================== -->
-<br><br>
 
-<div id="contact">
-    <div class="container">
-        <div class="section-title text-center">
-          <h2 class="bottombrand wow flipInX">Contacta con <b style="color: #f05f40;">nosotros</b></h2>
-          <hr class="primary">
-      		<p>
-      			¿Listo para comenzar tu próximo proyecto con nosotros? ¡Eso es genial! Llámenos o envíenos un correo electrónico y nos pondremos en contacto con usted lo antes posible. O si lo prefiere contactenos a traves de este formulario y le contestaremos en la mayor brevedad posible.
-      		</p>
+$nombre=$asunto=$mensaje=$email="";
+$nombreErr=$asuntoErr=$mensajeErr=$emailErr="";
+
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  if (empty($_POST["nombre"])) {
+    $nombreErr = "Asunto obligatorio";
+  } else {
+    $nombre = test_input($_POST["nombre"]);
+    if (!preg_match("/^[a-zñA-ZÑ0-9 -.,]*$/",$nombre)) {
+      $nombreErr = "Solo letras, numeros y espacio en blanco";
+    }
+  }
+
+
+if (empty($_POST["asunto"])) {
+  $asuntoErr = "Asunto obligatorio";
+} else {
+  $asunto = test_input($_POST["asunto"]);
+  if (!preg_match("/^[a-zñA-ZÑ0-9 -.,]*$/",$asunto)) {
+    $asuntoErr = "Solo letras, numeros y espacio en blanco";
+  }
+}
+
+     if (empty($_POST["mensaje"])) {
+         $mensajeErr = "Mensaje obligatorio";
+       } else {
+         $mensaje = test_input($_POST["mensaje"]);
+         if (!preg_match("/^[a-zñA-ZÑ0-9 -\/,.]*$/",$mensaje)) {
+           $mensajeErr = "Solo letras y espacio en blanco";
+         }
+       }
+
+
+     if (empty($_POST["email"])) {
+      $emailErr = "Email obligatorio";
+     } else {
+      $email = test_input($_POST["email"]);
+      // check if e-mail address is well-formed
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Formato invalido de email";
+      }
+     }
+}
+
+     function test_input($data) {
+       $data = trim($data);
+       $data = stripslashes($data);
+       $data = htmlspecialchars($data);
+       return $data;
+     }
+
+
+     if($nombreErr=="" & $asuntoErr=="" & $mensajeErr=="" & $emailErr==""){
+
+
+
+     	mysqli_query($conexion,"insert into preguntas(preguntas_asunto,preguntas_pregunta,preguntas_nombre,preguntas_email,latitud,longitud) values
+                            ('$_REQUEST[asunto]','$_REQUEST[mensaje]','$_REQUEST[nombre]','$_REQUEST[email]','$_REQUEST[latitud]','$_REQUEST[longitud]')")
+       or die("Problemas en el select".mysqli_error($conexion));
+
+
+
+
+     }
+     	?>
+
+
+
+            <div class="container">
+
+
+              <div class="col-md-12 text-center">
+                <br><br>
+                <h2 class="bottombrand wow flipInX">Envio de <b style="color: #f05f40;">mensajes</b></h2>
+                <hr>
+            </div>
+            <div class="col-md-8 registro">
+
+
+
+      <ul class="registrado">
+            <li><label for="nombre" >Nombre:</label><?php echo " ".$nombre = $_POST['nombre'];?><span class="error"><?php echo "  ".$nombreErr;?></span></li>
+            <li><label for="email" >E-mail:</label><?php echo " ".$email = $_POST['email'];?><span class="error"><?php echo "  ".$emailErr;?></span></li>
+            <li><label for="asunto" >Asunto:</label><?php echo " ".$asunto = $_POST['asunto'];?> <span class="error"><?php echo "  ".$asuntoErr;?></span></li>
+            <li><label for="mensaje" >Mensaje:</label><?php echo " ".$mensaje = $_POST['mensaje'];?><span class="error"><?php echo "  ".$mensajeErr;?></span></li>
+
+
+
+          </ul>
+          </div>
       </div>
 
-<br><br>
 
-      <div class="row">
-          <div class="col-md-4">
-              <address>
-                  <span class="glyphicon glyphicon-map-marker" id="social-left"></span><strong style="color:white;">Direccion</strong><br>
-                  <br>
-                  <div style="color:white;">
+            <br>
+
+        <div class="col-md-12 text-center">
+                  <?php
 
 
-                  <b>  Angel Varela Pruaño</b> <br>
-                    Calle Ramon y Cajal nº 1. <br>
-                    Trebujena, CP. 11560. Cadiz, España.<br>
-                    Telefono: (+34) 605884603<br>
-                    Email: info@arquitecto-tecnico-trebujena.es
-  </div>
-                  <div class="social3">
 
-                      <a href="https://www.linkedin.com/in/angel-varela-prua%C3%B1o-a6922073/"><span class="fa fa-linkedin" id="social3"></span></a>
-                      <a href="https://twitter.com/arquitectrebu"><span class="fa fa-twitter" id="social3"></span></a>
-                          <a href="https://plus.google.com/+AngelVarelaPrua%C3%B1o?hl=es-419"><span class="fa fa-google-plus" id="social3"></span></a>
-                      <a href="https://www.facebook.com/Angel-Varela-Prua%C3%B1o-Arquitecto-Tecnico-Trebujena-126221484146945/"><span class="fa fa-facebook" id="social3"></span></a>
+                  if($nombreErr=="" & $asuntoErr=="" & $mensajeErr=="" & $emailErr==""){
 
-                    </div>
-                </address>
-            </div>
-            <div class="col-md-8">
+                  echo "<img  src='img/enviado.png'>";
+                  echo "<h3 class='envio'> El mensaje ha sido enviado correctamente. </h3>";
+                  echo "<h4 class='envio'> Le responderemos lo antes posible, muchas gracias. </h4>";
 
-                <form method="post" action="enviopregunta.php" id="contactform" >
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="nombre"   style="margin:0 0% 5% 0;" placeholder="Tu nombre">
+                  }else{
+                  echo "<h3 style=color:red> El mensaje no se envio. </h3>";
+                  ?>
+                  <script  type="text/javascript">
 
-                        </div>
-                        <div class="col-md-6">
-                            <input type="email" class="form-control" name="email" pattern= "[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="Email del usuario" required  style="margin:0% 0% 5% 0;" placeholder="Email">
+      /*
+                    setTimeout("redirigir()", 2000);
 
-                        </div>
-												  <div class="col-md-12">
-												<input type="text" class="form-control" name="asunto" pattern="[.-_A-Za-z0-9 ñÑ]{1,100}"  title="Asunto" required style="margin:0 0% 3% 0;"placeholder="Asunto">
-                    </div>
-</div>
-                    <textarea class="form-control" rows="4" name="mensaje" pattern="[.-_A-Za-z0-9 ñÑ]{1,500}"  title="Mensaje" required placeholder="Mensaje"></textarea>
-                    <input type="hidden" name="latitud" id="latitud"/>
-                    <input type="hidden" name="longitud" id="longitud"/>
-                    <div class="text-right">
-                        	<input type="submit" name="enviar" id="enviar" class="contact submit btn btn-primary btn-xl" value="Enviar mensaje">
-                    </div>
-                </form>
-            </div>
 
-              <div class="col-md-12">
-<br><br>
-<div id="map" style="width:100%;height:500px"></div>
-<script>
-function myMap() {
-  var mapCanvas = document.getElementById("map");
-  var myCenter = new google.maps.LatLng(36.87096819550552,-6.1767686158418655);
-  var mapOptions = {center: myCenter, zoom: 16};
-  var map = new google.maps.Map(mapCanvas,mapOptions);
-  var marker = new google.maps.Marker({
-    position: myCenter,
-    animation: google.maps.Animation.BOUNCE
-  });
-  marker.setMap(map);
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRVATQuo5Z7O4IL8tbjoOAzhdKAEpTM3g&callback=myMap"></script>
+                  function redirigir(){
+                    window.location="registro.php";
+                  }
+                  */
+                  </script>
 
-</div>
+                  <?php
+                  }
+                   mysqli_close($conexion);
+                  ?>
+            <br>
+      </div>
 
-        </div>
-    </div>
-</div>
 
-<br>
+      <br>
+
+
+
+
+
+
+
+
 <!-- Section Footer
 ================================================== -->
 <div class="bg-dark">

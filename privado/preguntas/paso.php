@@ -16,7 +16,7 @@ $_SESSION["numero"]=4;
 $_SESSION["user"]= $_REQUEST['nick'];
 $_SESSION["email"] = $_REQUEST['email'];
 $_SESSION["fechaPregunta"] = $_REQUEST['fechaPregunta'];
-$_SESSION["resuelta"] = $_REQUEST['resuelta'];
+$_SESSION["respondida"] = $_REQUEST['resuelta'];
 
 header('Location: ?p=preguntas/verpreguntas');
 

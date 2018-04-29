@@ -54,7 +54,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 <div class="col-md-6">
 <div class="form-group">
   <label for="nick">Usuario</label>
-  <input  class="form-control" readonly type="text" name="nick" id="nick" placeholder="Usuario" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca nombre de usuario .-_A-Za-z0-9 ñÑ" required value="<?php echo $reg['usuarios_usuario'];?>"/>
+  <input  class="form-control" readonly type="text" name="nick" id="nick" placeholder="Usuario" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Nick del usuario" required value="<?php echo $reg['usuarios_usuario'];?>"/>
   <input  class="form-control" readonly type="hidden" name="id" id="id" placeholder="id" value="<?php echo $reg['usuarios_id'];?>"/>
   <input  class="form-control" readonly type="hidden" name="id" id="pass" />
   <input  class="form-control" readonly type="hidden" name="id" id="pass2" />
@@ -64,7 +64,8 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
     <div class="col-md-6">
       <div class="form-group">
         <label for="email">Email</label>
-        <input  class="form-control" readonly type="email"  name="email" id="email"  placeholder="correo@ejemplo.com" required pattern= "[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="Introduzca este formato correo@ejemplo.com" required value="<?php echo $reg['usuarios_email'];?>"/>
+        <input  class="form-control" readonly type="email"  name="email" id="email"  placeholder="correo@ejemplo.com" pattern= "[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="Email del usuario" required value="<?php echo $reg['usuarios_email'];?>"/>
+
     </div>
       </div>
     </div>

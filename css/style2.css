@@ -166,6 +166,7 @@ color: #f05f40;
 }
 .pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover {
   color: #f05f40;
+  
 }
 .pagination > li > a:focus, .pagination > li > a, .pagination > li > span:focus, .pagination > li > span {
 
