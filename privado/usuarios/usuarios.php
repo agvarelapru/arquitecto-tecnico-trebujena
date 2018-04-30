@@ -171,7 +171,40 @@ if($num_total_registros>0){
 
   $cant++;
   }
-  ?><input class="btn btn-primary" type="submit" name="buscar" id="buscar2" value="Bloquear" >
+  ?><button class="contact submit btn btn-primary btn-xl" style="float:right;"  data-toggle="modal" data-target="#myModal"  type="button" name="buscar" id="bloquear" value="Bloquear" >Bloquear</button>
+
+
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #282f35;">
+            <button type="button" class="close" data-dismiss="modal" style="color:white;font-weight:bold;">&times;</button>
+            <h3 class="modal-title" style="color:white;font-weight:bold;">¡Atencion!</h3>
+          </div>
+          <div class="modal-body" >
+            <p style="color:black;">¿Esta seguro de bloquear a los usuarios?</p>
+
+          </div>
+          <div class="modal-footer" >
+
+
+            <button type="submit" class="btn btn-primary" style="float:left;">Bloquearr</button>
+            </form>
+
+
+            <button type="button" class="btn btn-primary" data-dismiss="modal" style="float:left;margin-left:7%;">Cancelar</button>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
   </form>
   <?php
   $self="usuarios2.php";

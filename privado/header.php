@@ -56,7 +56,7 @@ $usuario = $pass = $perfil="";
 
      <ul class="dropdown-menu">
          <li>
-           <a class="page-scroll" href="?p=encargos/buscarencargo" id="ini">Buscar encargo</a>
+           <a class="page-scroll" href="?p=encargos/buscarencargos" id="ini">Buscar encargo</a>
          </li>
        <li>
        <a class="page-scroll" href="?p=encargos/nuevoencargo" id="ini">Nuevo encargo</a>
@@ -67,7 +67,7 @@ $usuario = $pass = $perfil="";
      </li>
    <?php }else{
      ?>
-<li class="dropdown"><a class="dropdown-scroll" href="?p=buscarencargo" id="ini">Encargos </a></li>
+<li class="dropdown"><a class="dropdown-scroll" href="?p=encargos/buscarencargos" id="ini">Encargos </a></li>
      <?php
    } ?>
      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="ini">Administracion <span class="caret"></span></a>
