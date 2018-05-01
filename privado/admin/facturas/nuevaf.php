@@ -43,8 +43,8 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
   <div class="form-group">
     <label for="usuario" id="us">Cliente</label>
 
-    <select class="form-control" name="usuarios" id="getuser" title="Indique un cliente" required />
-<option value="">--Selecione un cliente--</option>
+    <select class="form-control" name="usuarios" id="getuser" title="Indique un cliente" required onchange="muestraEncargos()"/>
+<option value="#">--Selecione un cliente--</option>
     <?php
 
     $consulta_mysql=mysqli_query($conexion,"select * from usuarios") or
@@ -61,8 +61,9 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
 
 
   </div>
-
-
+  <input  class="form-control"  type="hidden" name="pass" id="pass"/>
+  <input  class="form-control"  type="hidden" name="pass" id="pass2"/>
+  <input  class="form-control"  type="hidden" name="pass" id="provincia"/>
 <div class="form-group">
   <label for="Nombre">Nombre:</label>
   <input  class="form-control"  type="text" name="nombre" id="nombre" placeholder="Nombre" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Nombre del cliente"/>
@@ -74,7 +75,7 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
   <div class="form-group">
     <label for="encargo" id="encar" >Encargo</label>
 
-    <select class="form-control" name="encargo" id="getEncargo" title="Indique el encargo" required/>
+    <select class="form-control" name="encargo" id="getencargo" title="Indique el encargo" required onchange="muestraDatos()"/>
 
 
        <option value="">--Selecione un encargo--</option>
@@ -100,7 +101,7 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
         <div class="col-md-12">
           <div class="form-group">
     <label for="tipo">Tipo de trabajo</label>
-        <textarea class="form-control" rows="4" placeholder="Tipo de trabajo" name="trabajos" pattern="[.-_()A-Za-z0-9 ñÑ]{5,500}" required></textarea>
+        <textarea class="form-control" rows="4" placeholder="Tipo de trabajo" id="tipo" name="trabajos" pattern="[.-_()A-Za-z0-9 ñÑ]{5,500}" required></textarea>
       </div>
         </div>
         <div class="col-md-6">
@@ -113,7 +114,7 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
         <div class="col-md-6">
         <div class="form-group">
           <label for="pem">PEM:</label>
-          <input  class="form-control"  type="number" name="pem" id="pem" placeholder="PEM" pattern="[,.-_€A-Za-z0-9 ñÑ]{1,50}"  title="Presupuesto de ejecucion estimado" required />
+          <input  class="form-control"  type="text" name="pem" id="pem" placeholder="PEM" pattern="[,.0-9]{1,50}"  title="Presupuesto de ejecucion estimado" required />
 
         </div>
         </div>
@@ -122,7 +123,7 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
         <div class="col-md-6">
         <div class="form-group">
           <label for="honorarios">Honorarios:</label>
-          <input  class="form-control"  type="number" name="honorarios" id="honorarios" placeholder="Honorarios"   title="Honorarios" required />
+          <input  class="form-control"  type="text" name="honorarios" id="honorarios" placeholder="Honorarios" pattern="[,.0-9]{1,50}"   title="Honorarios" required />
 
         </div>
         </div>
@@ -156,3 +157,4 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
     </form>
     <br><br>
 </div>
+<script src="js/muestraencargos.js"></script>
