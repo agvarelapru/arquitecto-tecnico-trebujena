@@ -72,27 +72,25 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 
 
 <div class="col-md-8 registro">
-  <h3 style="float:left;color:white;">Codigo: <?php echo $_REQUEST["presupuestos_id"] ?></h3>
-
-  <h3 style="float:right;color:white;">Aceptado: <?php echo $aceptado ?></h3><br><br>
+  <h3 style="float:right;color:white;"><b style="color: #f05f40;">Aceptado: </b><?php echo $aceptado ?></h3><br><br>
 
 
 <br>
     <form method="post" action="?p=admin/presupuestos/presmodificado" id="contactform">
-      <input  class="form-control" type="hidden" name="presupuestos_id" id="presupuestos_id"  value="<?php echo " ".$reg["presupuestos_id"]; ?>"/>
+      <input  class="form-control" type="hidden" name="presupuestos_id" id="presupuestos_id"  value="<?php echo $reg["presupuestos_id"]; ?>"/>
 
       <div class="row">
       <div class="col-md-6">
       <div class="form-group">
         <label for="Nombre">Nombre:</label>
-        <input  class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Nombre del cliente" value="<?php echo " ".$reg["presupuestos_nombre"]; ?>"/>
+        <input  class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Nombre del cliente" value="<?php echo $reg["presupuestos_nombre"]; ?>"/>
 
       </div>
       </div>
       <div class="col-md-6">
       <div class="form-group">
         <label for="nif">NIF</label>
-        <input class="form-control"  type="text" name="nif" id="nif" placeholder="NIF"   title="Introduzca su NIF o CIF" value="<?php echo " ".$reg["presupuestos_nif"]; ?>"/>
+        <input class="form-control"  type="text" name="nif" id="nif" placeholder="NIF"   title="Introduzca su NIF o CIF" value="<?php echo $reg["presupuestos_nif"]; ?>"/>
       </div>
       </div>
 
@@ -106,20 +104,20 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
               <div class="col-md-12">
                 <div class="form-group">
           <label for="tipo">Tipo de trabajo</label>
-              <textarea class="form-control" rows="4"  placeholder="Tipo de trabajo" name="trabajos" pattern="[.-_()A-Za-z0-9 ñÑ]{5,500}" required ><?php echo " ".$reg["presupuestos_encargo"]; ?></textarea>
+              <textarea class="form-control" rows="4"  placeholder="Tipo de trabajo" name="trabajos" pattern="[.-_()A-Za-z0-9 ñÑ]{5,500}" required ><?php echo $reg["presupuestos_encargo"]; ?></textarea>
             </div>
               </div>
               <div class="col-md-6">
               <div class="form-group">
                 <label for="superficie">Superficie:</label>
-                <input  class="form-control" type="text" name="superficie" id="superficie" placeholder="Superficie" pattern="[.,-_A-Za-z0-9 ñÑ]{1,50}"  title="Superficie construida" required value="<?php echo " ".$reg["presupuestos_superficie"]; ?>"/>
+                <input  class="form-control" type="text" name="superficie" id="superficie" placeholder="Superficie" pattern="[.,-_A-Za-z0-9 ñÑ]{1,50}"  title="Superficie construida" required value="<?php echo $reg["presupuestos_superficie"]; ?>"/>
 
               </div>
               </div>
               <div class="col-md-6">
               <div class="form-group">
                 <label for="pem">PEM:</label>
-                <input  class="form-control"  type="text" name="pem" id="pem" placeholder="PEM" pattern="[,.-_€A-Za-z0-9 ñÑ]{1,50}"  title="Presupuesto de ejecucion estimado" required value="<?php echo " ".$reg["presupuestos_pem"]; ?>"/>
+                <input  class="form-control"  type="text" name="pem" id="pem" placeholder="PEM" pattern="[,.0-9]{1,50}"  title="Presupuesto de ejecucion estimado" required value="<?php echo $reg["presupuestos_pem"]; ?>"/>
 
               </div>
               </div>
@@ -128,7 +126,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
               <div class="col-md-6">
               <div class="form-group">
                 <label for="honorarios">Honorarios:</label>
-                <input  class="form-control"  type="text" name="honorarios" id="honorarios" placeholder="Honorarios"   title="Honorarios" required value="<?php echo " ".$reg["presupuestos_honorarios"]; ?>"/>
+                <input  class="form-control"  type="text" name="honorarios" id="honorarios" placeholder="Honorarios" pattern="[,.0-9]{1,50}"  title="Honorarios" required value="<?php echo $reg["presupuestos_honorarios"]; ?>"/>
 
               </div>
               </div>
@@ -137,7 +135,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
               <div class="col-md-6">
               <div class="form-group">
                 <label for="email">Email</label>
-                <input  class="form-control"  type="text"  name="email" id="email"  placeholder="correo@ejemplo.com"  title="Email del usuario" value="<?php echo " ".$reg["presupuestos_email"]; ?>"/>
+                <input  class="form-control"  type="text"  name="email" id="email"  placeholder="correo@ejemplo.com"  title="Email del usuario" value="<?php echo $reg["presupuestos_email"]; ?>"/>
 
             </div>
               </div>
@@ -146,7 +144,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
           <div class="col-md-12">
             <div class="form-group">
       <label for="observaciones">Observaciones</label>
-          <textarea class="form-control" rows="4" placeholder="observaciones" name="observaciones" pattern="[.-_A-Za-z0-9 ñÑ]{5,500}" ><?php echo " ".$reg["presupuestos_observaciones"]; ?></textarea>
+          <textarea class="form-control" rows="4" placeholder="observaciones" name="observaciones" pattern="[.-_A-Za-z0-9 ñÑ]{5,500}" ><?php echo $reg["presupuestos_observaciones"]; ?></textarea>
         </div>
           </div>
         </div>

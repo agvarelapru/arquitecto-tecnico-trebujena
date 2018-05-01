@@ -67,7 +67,7 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
 <div class="col-md-12">
         <div class="form-group">
           <label for="honorarios">Honorarios:</label>
-          <input  class="form-control"  type="number" name="honorarios" id="honorarios" placeholder="Honorarios"   title="Honorarios" required />
+          <input  class="form-control"  type="number" name="honorarios" id="honorarios" placeholder="Honorarios" pattern="[0-9]{1,50}"  title="Honorarios" required />
         </div>
         </div>
 
@@ -81,14 +81,14 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
         <div class="col-md-6">
         <div class="form-group">
           <label for="superficie">Superficie:</label>
-          <input  class="form-control"  type="text" name="superficie" id="superficie" placeholder="Superficie" pattern="[.,-_A-Za-z0-9 ñÑ]{1,50}"  title="Superficie construida" required />
+          <input  class="form-control"  type="text" name="superficie" id="superficie" placeholder="Superficie" pattern="[.,0-9]{1,50}"  title="Superficie construida" required />
 
         </div>
         </div>
         <div class="col-md-6">
         <div class="form-group">
           <label for="pem">PEM:</label>
-          <input  class="form-control"  type="number" name="pem" id="pem" placeholder="PEM" pattern="[,.-_€A-Za-z0-9 ñÑ]{1,50}"  title="Presupuesto de ejecucion estimado" required />
+          <input  class="form-control"  type="number" name="pem" id="pem" placeholder="PEM" pattern="[,.0-9]{1,50}"  title="Presupuesto de ejecucion estimado" required />
 
         </div>
         </div>

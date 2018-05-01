@@ -72,8 +72,8 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 
 
 <div class="col-md-8 registro">
-  <h3 style="float:left;color:white;">Codigo: <?php echo $_GET["presupuestos_id"] ?></h3>
-  <h3 style="float:right;color:white;">Aceptado: <?php echo $aceptado ?></h3><br><br>
+
+  <h3 style="float:right;color:white;"><b style="color: #f05f40;">Aceptado: </b><?php echo $aceptado ?></h3><br><br>
 
 
 <br>
@@ -165,7 +165,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 
     <input class="contact submit btn btn-primary btn-xl"   type="submit" id="enviar" name="enviar" formaction="?p=admin/presupuestos/modpres" value="Modificar"/>
   </div>
-
+<?php } ?>
 
 <div class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog">
@@ -197,7 +197,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 </div>
 
 
-<?php }
+<?php
 }
 ?>
 

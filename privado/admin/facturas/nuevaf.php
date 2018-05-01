@@ -1,4 +1,9 @@
+<?php
+require_once('biblioteca/conexion.php');
 
+$conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la conexión.");
+  mysqli_set_charset($conexion,"utf8");
+ ?>
 
 
 <br><br>
@@ -12,10 +17,10 @@
 
     <div class="container">
         <div class="section-title text-center">
-          <h2 class="bottombrand wow flipInX">Nuevo presupuesto de <b style="color: #f05f40;"><?php echo " ".$_SESSION["usuario"]." "; ?></b></h2>
+          <h2 class="bottombrand wow flipInX">Nueva factura de <b style="color: #f05f40;"><?php echo " ".$_SESSION["usuario"]." "; ?></b></h2>
           <hr class="primary">
       		<p>
-      			Desde esta pagina puedes realizar un nuevo presupuesto.
+      			Desde esta pagina puedes realizar una nueva factura.
       		</p>
       </div>
 </div>
@@ -27,11 +32,37 @@
 
 
 
-    <form method="post" action="?p=admin/presupuestos/registropresupuesto" id="contactform">
+    <form method="post" action="?p=admin/facturas/registrofactura" id="contactform">
 
 
 <div class="row">
+
+
 <div class="col-md-6">
+
+  <div class="form-group">
+    <label for="usuario" id="us">Cliente</label>
+
+    <select class="form-control" name="usuarios" id="getuser" title="Indique un cliente" required />
+<option value="">--Selecione un cliente--</option>
+    <?php
+
+    $consulta_mysql=mysqli_query($conexion,"select * from usuarios") or
+    die("Problemas en el select:".mysqli_error($conexion));
+
+    while($reg=mysqli_fetch_array($consulta_mysql)){
+  $nombreUsuario=$reg["usuarios_nombre"]." ".$reg["usuarios_apellido1"]." ".$reg["usuarios_apellido2"];
+    echo "<option value='".$reg["usuarios_id"]."'>".$nombreUsuario."</option>";
+
+    }
+    ?>
+              </select>
+
+
+
+  </div>
+
+
 <div class="form-group">
   <label for="Nombre">Nombre:</label>
   <input  class="form-control"  type="text" name="nombre" id="nombre" placeholder="Nombre" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Nombre del cliente"/>
@@ -39,6 +70,20 @@
 </div>
 </div>
 <div class="col-md-6">
+
+  <div class="form-group">
+    <label for="encargo" id="encar" >Encargo</label>
+
+    <select class="form-control" name="encargo" id="getEncargo" title="Indique el encargo" required/>
+
+
+       <option value="">--Selecione un encargo--</option>
+
+              </select>
+
+</div>
+
+
 <div class="form-group">
   <label for="nif">NIF</label>
   <input class="form-control" type="text" name="nif" id="nif" placeholder="NIF" pattern="(([X-Zx-z]{1})([-]?)(\d{7})([-]?)([A-Za-z]{1}))|((\d{8})([-]?)([A-Za-z]{1}))|(([A-Za-z]{1})(\d{8}))"  title="Introduzca su NIF o CIF"/>

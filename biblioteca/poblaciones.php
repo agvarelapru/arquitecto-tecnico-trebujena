@@ -1,7 +1,7 @@
 <?php
 header("Content-Type: text/html;charset=utf-8");
 $codpro =  intval($_GET['q']);
-$option="{'municipios':[";
+$option='{"municipios":[';
 
 require_once('conexion.php');
 
@@ -18,10 +18,10 @@ $row_cnt = mysqli_num_rows($consulta_mysql);
 
   while($reg=mysqli_fetch_array($consulta_mysql)){
 
-  $option.= $reg["id"].",'".$reg["municipio"]."',";
+  $option.= $reg['id'].',"'.$reg['municipio'].'",';
 
   }
   $option = trim($option, ',');
-  $option.="]}";
+  $option.=']}';
   echo $option;
 ?>

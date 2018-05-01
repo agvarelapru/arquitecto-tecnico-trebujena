@@ -72,37 +72,32 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 
 
 <div class="col-md-8 registro">
-  <h3 style="float:left;color:white;">Codigo: <?php echo $_GET["encargos_id"] ?></h3>
-  <h3 style="float:right;color:white;">Finalizado: <?php echo $finalizado ?></h3><br><br>
+
+  <h3 style="float:right;color:white;"><b style="color: #f05f40;">Finalizado: </b><?php echo $finalizado ?></h3><br><br>
 
 
 <br>
     <form method="post" action="?p=encargos/borrarencar" id="contactform">
-      <input  class="form-control" readonly type="hidden" name="encargos_id" id="encargos_id"  value="<?php echo " ".$reg["encargos_id"]; ?>"/>
+      <input  class="form-control" type="hidden" name="encargos_id" id="encargos_id"  value="<?php echo " ".$reg["encargos_id"]; ?>"/>
 
 
 
       <div class="row">
       <div class="col-md-12">
         <?php
-        $consulta_mysql2=mysqli_query($conexion,"select *  from usuarios") or
+        $consulta_mysql2=mysqli_query($conexion,"select *  from usuarios where usuarios_id='".$reg["encargos_usuario"]."'") or
           die("Problemas en el select:".mysqli_error($conexion));
         $nombreUsuario=""
          ?>
-
           <label for="usuario">Cliente:</label>
-          <select class="form-control" name="usuario" id="usuario" required>
-            <option value="">--Seleccione el cliente--</option>
+
         <?php
         while($reg2=mysqli_fetch_array($consulta_mysql2)){
         $nombreUsuario=$reg2["usuarios_nombre"]." ".$reg2["usuarios_apellido1"]." ".$reg2["usuarios_apellido2"];
-          echo "<option value='".$reg2["usuarios_id"]."'>".$nombreUsuario."</option>";
-         } ?>
-          </select>
+         }?>
+          <input class="form-control" type="text" name="nombre" value="<?php echo " ".$nombreUsuario; ?>" disabled>
           <br>
       </div>
-
-
           </div>
 
 
@@ -113,7 +108,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
       <div class="col-md-12">
               <div class="form-group">
                 <label for="honorarios">Honorarios:</label>
-                <input  class="form-control"  type="number" name="honorarios" id="honorarios" placeholder="Honorarios"   title="Honorarios" required />
+                <input  class="form-control"  type="text" name="honorarios" id="honorarios" placeholder="Honorarios"  pattern="[,.0-9]{1,50}"  title="Honorarios" required disabled value="<?php echo " ".$reg["encargos_honorarios"]." €"; ?>"/>
               </div>
               </div>
 
@@ -121,20 +116,20 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
               <div class="col-md-12">
                 <div class="form-group">
           <label for="tipo">Tipo de encargo</label>
-              <textarea class="form-control" rows="4" placeholder="Tipo de encargo" name="encargo" pattern="[.-_()A-Za-z0-9 ñÑ]{5,500}" required></textarea>
+              <textarea class="form-control" rows="4" placeholder="Tipo de encargo" name="encargo" pattern="[.-_()A-Za-z0-9 ñÑ]{5,500}" required disabled ><?php echo " ".$reg["encargos_tipo"]; ?></textarea>
             </div>
               </div>
               <div class="col-md-6">
               <div class="form-group">
                 <label for="superficie">Superficie:</label>
-                <input  class="form-control"  type="text" name="superficie" id="superficie" placeholder="Superficie" pattern="[.,-_A-Za-z0-9 ñÑ]{1,50}"  title="Superficie construida" required />
+                <input  class="form-control"  type="text" name="superficie" id="superficie" placeholder="Superficie" pattern="[.,0-9]{1,50}"  title="Superficie construida" required disabled value="<?php echo " ".$reg["encargos_superficie"]." m2"; ?>"/>
 
               </div>
               </div>
               <div class="col-md-6">
               <div class="form-group">
                 <label for="pem">PEM:</label>
-                <input  class="form-control"  type="number" name="pem" id="pem" placeholder="PEM" pattern="[,.-_€A-Za-z0-9 ñÑ]{1,50}"  title="Presupuesto de ejecucion estimado" required />
+                <input  class="form-control"  type="text" name="pem" id="pem" placeholder="PEM" pattern="[,.0-9]{1,50}"  title="Presupuesto de ejecucion estimado" required disabled value="<?php echo " ".$reg["encargos_pem"]." €"; ?>"/>
 
               </div>
               </div>
@@ -148,18 +143,18 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
               <div class="col-md-12">
               <div class="form-group">
                 <label for="refCatastral">Referencia catastral</label>
-                <input class="form-control" type="text" name="refCatastral" id="refCatastral" placeholder="Referencia catastral" pattern="[.-_A-Za-z0-9 ñÑ]{5,50}"  title="Introduzca la referenca catastral"/>
+                <input class="form-control" type="text" name="refCatastral" id="refCatastral" placeholder="Referencia catastral" pattern="[.-_A-Za-z0-9 ñÑ]{5,50}"  title="Introduzca la referenca catastral" disabled value="<?php echo " ".$reg["encargos_ref_catastral"]; ?>"/>
               </div>
               </div>
 
       <div class="col-md-6">
               <div class="form-group">
                 <label for="direccion">Direccion</label>
-                <input class="form-control" type="text" name="direccion" id="direccion" placeholder="Direccion" pattern="[ A-Za-zñÑ0-9,./-]{1,100}"  title="Introduzca la Direccion A-Z 0-9 ,.-/"  required/>
+                <input class="form-control" type="text" name="direccion" id="direccion" placeholder="Direccion" pattern="[ A-Za-zñÑ0-9,./-]{1,100}"  title="Introduzca la Direccion A-Z 0-9 ,.-/"  required disabled value="<?php echo " ".$reg["encargos_direccion"]; ?>"/>
               </div>
               <div class="form-group">
                 <label for="cp">Codigo postal</label>
-                <input class="form-control" type="text" name="cp" id="cp" placeholder="CP" pattern="[0-9]{5}"  title="Introduzca su codigo postal"  required/>
+                <input class="form-control" type="text" name="cp" id="cp" placeholder="CP" pattern="[0-9]{5}"  title="Introduzca su codigo postal"  required disabled value="<?php echo " ".$reg["encargos_cp"]; ?>"/>
               </div>
 
       </div>
@@ -168,39 +163,42 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
                 <div class="form-group">
                   <label for="provincia" id="provi">Provincia</label>
 
-                  <select class="form-control" name="provincia" id="provincia" title="Indique su provincia" required />
-              <option value="">--Selecione una provincia--</option>
+
                   <?php
 
-                  $consulta_mysql=mysqli_query($conexion,"select * from provincias") or
+                  $consulta_mysql3=mysqli_query($conexion,"select * from provincias where id='".$reg['encargos_provincia']."'") or
                   die("Problemas en el select:".mysqli_error($conexion));
 
-                  while($reg=mysqli_fetch_array($consulta_mysql)){
+                  while($reg3=mysqli_fetch_array($consulta_mysql3)){
 
-                  echo "<option value='".$reg["id"]."'>".$reg["provincia"]."</option>";
+?>
 
+<input class="form-control" disabled type="text" name="provincia" id="provincia" placeholder="Provincia" pattern="[0-9]{5}"  title="Introduzca su provincia"  required value="<?php echo $reg3['provincia'];?>"/>
+<?php
                   }
                   ?>
-                            </select>
 
-
-
-                </div>
-
+</div>
                 <div class="form-group">
                   <label for="poblacion" id="pobla" >Poblacion</label>
 
-                  <select class="form-control" name="poblacion" id="poblaciones" title="Indique su poblacion" required/>
+                    <?php
+
+                    $consulta_mysql4=mysqli_query($conexion,"select * from municipios where id='".$reg['encargos_poblacion']."'") or
+                    die("Problemas en el select:".mysqli_error($conexion));
 
 
-                     <option value="">--Selecione una localidad--</option>
+                    while($reg4=mysqli_fetch_array($consulta_mysql4)){
 
-                            </select>
+                        ?>
 
+                        <input class="form-control" disabled type="text" name="poblacion" id="poblacion" placeholder="Poblacion" pattern="[0-9]{5}"  title="Introduzca su poblacion"  required value="<?php echo $reg4['municipio'];?>"/>
+                        <?php
 
+                    }
+                    ?>
 
-
-              </div>
+                </div>
 
 
 
@@ -213,7 +211,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 
           <div class="form-group">
       <label for="observaciones">Observaciones</label>
-        <textarea class="form-control" rows="4" placeholder="observaciones" name="observaciones" pattern="[.-_A-Za-z0-9 ñÑ]{5,500}"></textarea>
+        <textarea class="form-control" rows="4" placeholder="observaciones" name="observaciones" pattern="[.-_A-Za-z0-9 ñÑ]{5,500}" disabled><?php echo " ".$reg["encargos_observaciones"]; ?></textarea>
       </div>
 
 
@@ -227,13 +225,18 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 
     <input class="contact submit btn btn-primary btn-xl"   type="submit" id="enviar" name="enviar" formaction="?p=encargos/modencar" value="Modificar"/>
   </div>
+
+
+
+
+
 <?php }else if($_SESSION["perfil"]=="Tecnico"){?>
   <div class="text-right">
 
 
     <input class="contact submit btn btn-primary btn-xl"   type="submit" id="enviar" name="enviar" formaction="?p=encargos/modencar" value="Modificar"/>
   </div>
-
+<?php } ?>
 
 <div class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog">
@@ -265,7 +268,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 </div>
 
 
-<?php }
+<?php
 }
 ?>
 

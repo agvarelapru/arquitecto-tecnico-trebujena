@@ -157,6 +157,7 @@ if($_SESSION["perfil"]=="Administrador"){
     echo "<h4 class='list-group-item-heading' style='float:left;'>Cliente: ".$nombreUsuario."</h4>";
   echo "<h4 class='list-group-item-heading' style='float:right;'>Finalizado: ".$finalizado."</h4><br><br>";
   echo  "<p class='list-group-item-text' style='float:right;'>Poblacion: ".$poblacion."</p>";
+  echo  "<p class='list-group-item-text'>Tipo: ".$reg['encargos_tipo']."</p>";
     echo  "<p class='list-group-item-text'>Fecha: ".$reg['encargos_fecha']."</p>";
 
     echo "</a>";

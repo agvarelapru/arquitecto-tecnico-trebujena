@@ -63,6 +63,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
         <label for="pass">Contraseña</label>
         <input  class="form-control" readonly type="password"  name="pass" id="pass"  placeholder="Contraseña" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca contraseña .-_A-Za-z0-9 ñÑ" required value="<?php echo $reg['usuarios_pass'];?>"/>
           <input  class="form-control" readonly type="hidden"  name="pass" id="pass2"  placeholder="Contraseña" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca contraseña .-_A-Za-z0-9 ñÑ" required value="<?php echo $reg['usuarios_pass'];?>"/>
+
     </div>
       </div>
       <div class="col-md-6">

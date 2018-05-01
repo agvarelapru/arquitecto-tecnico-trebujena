@@ -94,9 +94,18 @@ if (!preg_match("/^[a-zñA-ZÑ0-9 -\/(),.]*$/",$direccion)) {
 
 
 
-     	mysqli_query($conexion,"insert into encargos(encargos_ref_catastral,encargos_direccion,encargos_tipo,encargos_superficie,encargos_pem,encargos_honorarios,encargos_cp,encargos_provincia,encargos_poblacion,encargos_observaciones,encargos_usuario,encargos_tecnico) values
-                            ('$_POST[refCatastral]','$_POST[direccion]','$_POST[encargo]','$_POST[superficie]','$_POST[pem]','$_POST[honorarios]','$_POST[cp]','$_POST[provincia]','$_POST[poblacion]','$_POST[observaciones]','$_POST[usuario]','$_SESSION[id]')")
-       or die("Problemas en el select".mysqli_error($conexion));
+
+
+
+         if($_REQUEST['finalizado']==1){
+         $finalizado="SI";
+       }else if($_REQUEST['finalizado']==0){
+         $finalizado="NO";
+         }
+
+
+         mysqli_query($conexion, "update encargos set encargos_ref_catastral='$_POST[refCatastral]',encargos_direccion='$_POST[direccion]',encargos_tipo='$_POST[encargo]', encargos_superficie='$_POST[superficie]',encargos_pem='$_POST[pem]',encargos_honorarios='$_POST[honorarios]',encargos_cp='$_POST[cp]',encargos_provincia='$_POST[provincia]',encargos_poblacion='$_POST[poblacion]', encargos_observaciones='$_POST[observaciones]',encargos_usuario='$_POST[usuario]', encargos_tecnico='$_POST[tecnico]',encargos_finalizado='$_POST[finalizado]'
+          where encargos_id='$_REQUEST[encargos_id]'") or die("Problemas en el select:".mysqli_error($conexion));
 
 
 
@@ -125,7 +134,13 @@ $provincia=$reg3["provincia"];
  $poblacion=$reg4["municipio"];
   }
 
+  $registros=mysqli_query($conexion,"select *  from usuarios where usuarios_id='".$_POST["tecnico"]."'") or
+    die("Problemas en el select:".mysqli_error($conexion));
+  $nombreTecnico="";
 
+  while ($reg2 = mysqli_fetch_array($registros)){
+    $nombreTecnico=$reg2["usuarios_nombre"]." ".$reg2["usuarios_apellido1"]." ".$reg2["usuarios_apellido2"];
+  }
      }
 
 
@@ -139,7 +154,7 @@ $provincia=$reg3["provincia"];
 
         <div class="col-md-12 text-center">
           <br><br>
-          <h2 class="bottombrand wow flipInX">Registro de <b style="color: #f05f40;">encargo</b></h2>
+          <h2 class="bottombrand wow flipInX">Modificacion de <b style="color: #f05f40;">encargo</b></h2>
           <hr>
       </div>
       <div class="col-md-8 registro">
@@ -166,8 +181,8 @@ $provincia=$reg3["provincia"];
 <li><label for="provincia" >Provincia:</label><?php echo " ".$provincia ?></li>
 <li><label for="poblacion" >Municipio:</label><?php echo " ".$poblacion ?></li>
 <li><label for="observaciones" >Observaciones:</label><?php echo " ".$observaciones = $_POST['observaciones'];?><span class="error"><?php echo "  ".$observacionesErr;?></span></li>
-<li><label for="tecnico" >Tecnico:</label><?php echo " ".$_SESSION['usuario'];?></li>
-
+<li><label for="tecnico" >Tecnico:</label><?php echo " ".$nombreTecnico;?></li>
+<li><label for="finalizado" >Finalizado:</label><?php echo " ".$finalizado;?></li>
 
     </ul>
     </div>
