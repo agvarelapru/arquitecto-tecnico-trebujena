@@ -64,7 +64,9 @@ document.getElementById('us').style.color='#f05f40';
      var clientes=objeto_json2.clientes;
 
   document.getElementById("nombre").value =clientes[0];
-
+  document.getElementById("apellido1").value =clientes[1];
+  document.getElementById("apellido2").value =clientes[2];
+    document.getElementById("nif").value =clientes[3];
 
             //document.getElementById("getencargo").innerHTML =option;
   document.getElementById('us').style.color='#f05f40';
@@ -112,9 +114,14 @@ function muestraDatos() {
      var objeto_json = eval("("+respuesta_json+")");
 
      var encargos=objeto_json.encargos;
+var trabajo=encargos[0];
 
-  document.getElementById("tipo").innerHTML =encargos[0];
-            document.getElementById("honorarios").value=encargos[1];
+            var importe=document.getElementById("honorarios").value=encargos[1];
+            document.getElementById("iva").value=importe*0.21;
+            document.getElementById("total").value=importe*1.21;
+  trabajo+=" sito en "+encargos[2]+", de "+encargos[3]+" ("+encargos[4]+").";
+document.getElementById("tipo").innerHTML =trabajo;
+
 
            }
        };

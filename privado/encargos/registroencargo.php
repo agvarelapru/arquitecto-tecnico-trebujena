@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
   $refCatastral = test_input($_POST["refCatastral"]);
-  if (!preg_match("/^[a-zñA-ZÑ0-9 -.,]*$/",$nombre)) {
+  if (!preg_match("/^[a-zñA-ZÑ0-9 -.,]*$/",$refCatastral)) {
     $refCatastralErr = "Solo letras, numeros y espacio en blanco";
   }
 

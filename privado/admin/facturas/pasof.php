@@ -13,10 +13,10 @@ session_start();
 
 // Set session variables
 $_SESSION["numero"]=4;
-$_SESSION["nombre"]= $_REQUEST['nombre'];
-$_SESSION["trabajo"] = $_REQUEST['trabajo'];
+$_SESSION["num"]= $_REQUEST['numero'];
+$_SESSION["year"] = $_REQUEST['year'];
 $_SESSION["fechaFactura"] = $_REQUEST['fechaFactura'];
-$_SESSION["pagada"] = $_REQUEST['pagada'];
+
 
 header('Location: ?p=admin/facturas/verfacturas');
 

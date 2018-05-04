@@ -13,13 +13,13 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or
 
 
 
-  $consulta_mysql=mysqli_query($conexion,"select * from encargos where encargos_id=".$codencar) or
+  $consulta_mysql=mysqli_query($conexion,"select * from encargos e, provincias p, municipios m where e.encargos_id=".$codencar." and p.id=e.encargos_provincia and m.id=e.encargos_poblacion") or
   die("Problemas en el select:".mysqli_error($conexion));
 $row_cnt = mysqli_num_rows($consulta_mysql);
 
   while($reg=mysqli_fetch_array($consulta_mysql)){
 
-  $option.= '"'.$reg['encargos_tipo'].'","'.$reg['encargos_honorarios'].'",';
+  $option.= '"'.$reg['encargos_tipo'].'","'.$reg['encargos_honorarios'].'","'.$reg['encargos_direccion'].'","'.$reg['municipio'].'","'.$reg['provincia'].'",';
 
   }
   $option = trim($option, ',');

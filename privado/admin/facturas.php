@@ -50,25 +50,28 @@ if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
 
 
   <div class="form-group">
-  <label for="usuario" >Ingrese el nombre del cliente:</label>
-  <input  class="form-control" type="text" name="nombre" placeholder="Nombre cliente" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca nombre del cliente .-_A-Za-z0-9 ñÑ"/>
+  <label for="usuario" >Ingrese el numero de la factura:</label>
+  <input  class="form-control" type="text" name="numero" placeholder="Numero factura 18/01-01" pattern="[0-9-/]{1,50}"  title="Introduzca el numero de la factura año/trimestre-numero"/>
       </div>
 
 
     <div class="form-group">
-  <label for="email" >Ingrese tipo de trabajo:</label>
-  <input  class="form-control" type="text" name="trabajo" placeholder="Tipo trabajo"  pattern= "[.-_A-Za-z0-9 ñÑ]{1,200}" title="Introduzca el tipo de trabajo"/>
+  <label for="email" >Ingrese el año de la factura:</label>
+  <input  class="form-control" type="text" name="year" placeholder="Año factura"  pattern= "[0-9]{1,2}" title="Introduzca el año de la factura, dos ultimas cifras"/>
   </div>
 
   <div class="form-group">
   <label for="fechaPregunta" >Ingrese la fecha de la factura:</label>
   <input  class="form-control" type="date" name="fechaFactura" placeholder="aaaa/mm/dd"  pattern= "[0-9]{4}/(0[1-9]|1[012])/(0[1-9]|1[0-9]|2[0-9]|3[01])" title="Introduzca este formato aaaa/mm/dd"/>
   </div>
-
+<!--
     <div class="form-group">
     <label for="resuelta" >Indique si esta pagada:</label>
     <input  class="form-control" type="checkbox" name="pagada" id="pagada"/>
     </div>
+-->
+
+
 
   <br>
 
