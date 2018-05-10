@@ -1,4 +1,5 @@
 <?php
+ob_start();
 // Start the session
 session_start();
     // Pequeña lógica para capturar la pagina que queremos abrir
@@ -14,3 +15,5 @@ if(empty($_SESSION["pass"]) & empty($_SESSION["usuario"]) & empty($_SESSION["per
 }
     // El fragmento de html que contiene el pie de página de nuestra web
    require_once 'privado/footer.php';
+ob_end_flush();
+?>

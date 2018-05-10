@@ -13,12 +13,12 @@ session_start();
 
 // Set session variables
 $_SESSION["numero"]=4;
-$_SESSION["nombre"]= $_REQUEST['nombre'];
-$_SESSION["trabajo"] = $_REQUEST['trabajo'];
+$_SESSION["nombre"]= $_REQUEST['usuarios'];
+$_SESSION["trabajo"] = $_REQUEST['encargo'];
 $_SESSION["fechaPago"] = $_REQUEST['fechaPago'];
 
 
-header('Location: ?p=admin/pagos/verpagos');
+header('Location: ?p=admin/pagos/verpago');
 
 ?>
 

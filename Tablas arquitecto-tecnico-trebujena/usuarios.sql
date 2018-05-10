@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 28-04-2018 a las 17:58:47
+-- Tiempo de generación: 04-05-2018 a las 10:03:56
 -- Versión del servidor: 5.6.12-log
 -- Versión de PHP: 5.4.12
 
@@ -56,7 +56,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`usuarios_id`, `usuarios_nombre`, `usuarios_apellido1`, `usuarios_apellido2`, `usuarios_nif`, `usuarios_direccion`, `usuarios_cp`, `usuarios_poblacion`, `usuarios_provincia`, `usuarios_telefono`, `usuarios_email`, `usuarios_titulacion`, `usuarios_colegio`, `usuarios_num_colegiado`, `usuarios_perfil`, `usuarios_usuario`, `usuarios_pass`, `usuarios_bloqueado`, `usuarios_fecha_alta`, `usuarios_fecha_nacimiento`) VALUES
-(1, 'Angel', 'Varela', 'Pruaño', '44049151B', 'C/ Ramon y Cajal, 1', 11560, 1802, 11, 605884603, 'agvarelapru@gmail.com', NULL, NULL, NULL, 'Administrador', 'agvarela', '576bf09efbbc72eb17361202b592e7ee', 0, '2018-04-12 18:39:17', '0000-00-00');
+(1, 'Angel', 'Varela', 'Pruaño', '44049151B', 'C/ Ramon y Cajal, 1', 11560, 1802, 11, 605884603, 'agvarelapru@gmail.com', NULL, NULL, NULL, 'Administrador', 'agvarela', '576bf09efbbc72eb17361202b592e7ee', 0, '2018-04-12 18:39:17', '0000-00-00'),
+(2, 'Pepe', 'Garcia', 'Lopez', '55555555K', 'C/ Palomino, 25', 11560, 1802, 11, 654123789, 'arturo@asd.com', NULL, NULL, NULL, 'Cliente', 'pp', '576bf09efbbc72eb17361202b592e7ee', 0, '2018-04-29 16:57:34', '0000-00-00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

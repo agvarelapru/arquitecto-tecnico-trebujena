@@ -90,8 +90,8 @@ if (!preg_match("/^[0-9,.]*$/",$total)) {
 
 
 
-     	mysqli_query($conexion,"insert into facturas(facturas_tecnico,facturas_cliente,facturas_encargo,facturas_fecha,facturas_observaciones,facturas_year,facturas_trimestre,facturas_iva,facturas_irpf,facturas_total,facturas_numero_factura) values
-                            ('$_SESSION[id]','$_POST[usuarios]','$_POST[encargo]','$_POST[fecha]','$_POST[observaciones]','$_POST[year]','$_POST[trimestre]','$_POST[iva]','$_POST[irpf]','$_POST[total]','$_POST[numfac]')")
+     	mysqli_query($conexion,"insert into facturas(facturas_tecnico,facturas_cliente,facturas_encargo,facturas_fecha,facturas_observaciones,facturas_year,facturas_trimestre,facturas_num,facturas_honorarios,facturas_iva,facturas_irpf,facturas_total,facturas_numero_factura) values
+                            ('$_SESSION[id]','$_POST[usuarios]','$_POST[encargo]','$_POST[fecha]','$_POST[observaciones]','$_POST[year]','$_POST[trimestre]','$_POST[num]','$_POST[honorarios]','$_POST[iva]','$_POST[irpf]','$_POST[total]','$_POST[numfac]')")
        or die("Problemas en el select".mysqli_error($conexion));
 
 

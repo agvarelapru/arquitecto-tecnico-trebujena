@@ -1,3 +1,9 @@
+<?php
+require_once('biblioteca/conexion.php');
+
+$conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la conexión.");
+  mysqli_set_charset($conexion,"utf8");
+ ?>
 <div class="container">
   <br><br>
 
@@ -45,15 +51,44 @@
 
 
   <div class="form-group">
-  <label for="usuario" >Ingrese el nombre del cliente:</label>
-  <input  class="form-control" type="text" name="nombre" placeholder="Nombre cliente" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca nombre del cliente .-_A-Za-z0-9 ñÑ"/>
+
+      <label for="usuario" id="us">Cliente</label>
+      <select class="form-control" name="usuarios" id="getuser" title="Indique un cliente" required onchange="muestraEncargos()"/>
+    <option value="#">--Selecione un cliente--</option>
+<?php
+$consulta_mysql=mysqli_query($conexion,"select * from usuarios") or
+die("Problemas en el select:".mysqli_error($conexion));
+
+while($reg=mysqli_fetch_array($consulta_mysql)){
+$nombreUsuario=$reg["usuarios_nombre"]." ".$reg["usuarios_apellido1"]." ".$reg["usuarios_apellido2"];
+echo "<option value='".$reg["usuarios_id"]."'>".$nombreUsuario."</option>";
+
+}
+
+ ?>
+
+  </select>
       </div>
 
+      <input  class="form-control"  type="hidden" name="pass" id="pass"/>
+      <input  class="form-control"  type="hidden" name="pass" id="pass2"/>
+      <input  class="form-control"  type="hidden" name="pass" id="provincia"/>
+      <input  class="form-control"  type="hidden" name="pass" id="tipo"/>
+      <input  class="form-control"  type="hidden" name="pass" id="honorarios"/>
+<input  class="form-control"  type="hidden" name="pass" id="nombre"/>
+<input  class="form-control"  type="hidden" name="pass" id="pagado"/>
 
-    <div class="form-group">
-  <label for="email" >Ingrese tipo de trabajo:</label>
-  <input  class="form-control" type="text" name="trabajo" placeholder="Tipo trabajo"  pattern= "[.-_A-Za-z0-9 ñÑ]{1,200}" title="Introduzca el tipo de trabajo"/>
-  </div>
+      <div class="form-group">
+        <label for="encargo" id="encar" >Encargo</label>
+        <select class="form-control" name="encargo" id="getencargo" title="Indique el encargo" required onchange="muestraDatos()"/>
+
+
+           <option value="#">--Selecione un encargo--</option>
+
+                  </select>
+
+    </div>
+
 
   <div class="form-group">
   <label for="fechaPago" >Ingrese la fecha del pago:</label>
@@ -63,9 +98,7 @@
 
   <br>
 
-
   <input class="btn btn-primary" type="submit" name="buscar" id="buscar" value="Buscar">
-
   </form>
 
 </div>
@@ -79,3 +112,4 @@
 
 
 <br><br><br>
+<script src="js/muestrapagos.js"></script>

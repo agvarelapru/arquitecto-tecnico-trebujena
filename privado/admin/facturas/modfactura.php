@@ -100,19 +100,19 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
           <legend>Datos del tecnico</legend>
         <div class="form-group">
           <label for="Nombre">Nombre:</label>
-          <input  class="form-control" disabled  type="text" name="nombreT" id="nombreT" placeholder="Nombre" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Nombre del tecnico" value="<?php echo $reg2["usuarios_nombre"]; ?>"/>
+          <input  class="form-control" readonly  type="text" name="nombreT" id="nombreT" placeholder="Nombre" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Nombre del tecnico" value="<?php echo $reg2["usuarios_nombre"]; ?>"/>
         </div>
         <div class="form-group">
           <label for="Apellido1">Apellido 1:</label>
-          <input  class="form-control"  disabled type="text" name="apellido1T" id="apellido1T" placeholder="Apellido1" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Primer apellido del tecnico" value="<?php echo $reg2["usuarios_apellido1"]; ?>"/>
+          <input  class="form-control"  readonly type="text" name="apellido1T" id="apellido1T" placeholder="Apellido1" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Primer apellido del tecnico" value="<?php echo $reg2["usuarios_apellido1"]; ?>"/>
         </div>
         <div class="form-group">
           <label for="Apellido2">Apellido 2:</label>
-          <input  class="form-control"  disabled type="text" name="apellido2T" id="apellido2T" placeholder="Apellido2" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Segundoapellido del tecnico" value="<?php echo $reg2["usuarios_apellido2"]; ?>"/>
+          <input  class="form-control"  readonly type="text" name="apellido2T" id="apellido2T" placeholder="Apellido2" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Segundoapellido del tecnico" value="<?php echo $reg2["usuarios_apellido2"]; ?>"/>
         </div>
         <div class="form-group">
           <label for="nif">NIF</label>
-          <input class="form-control"  disabled type="text" name="nif" id="nifT" placeholder="NIF" pattern="(([X-Zx-z]{1})([-]?)(\d{7})([-]?)([A-Za-z]{1}))|((\d{8})([-]?)([A-Za-z]{1}))|(([A-Za-z]{1})(\d{8}))"  title="Introduzca su NIF o CIF" value="<?php echo $reg2["usuarios_nif"]; ?>"/>
+          <input class="form-control"  readonly type="text" name="nif" id="nifT" placeholder="NIF" pattern="(([X-Zx-z]{1})([-]?)(\d{7})([-]?)([A-Za-z]{1}))|((\d{8})([-]?)([A-Za-z]{1}))|(([A-Za-z]{1})(\d{8}))"  title="Introduzca su NIF o CIF" value="<?php echo $reg2["usuarios_nif"]; ?>"/>
         </div>
 
         </fieldset>
@@ -136,19 +136,19 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
         <legend>Datos del cliente</legend>
         <div class="form-group">
           <label for="Nombre">Nombre:</label>
-          <input  class="form-control"  type="text" name="nombre" id="nombre" placeholder="Nombre" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Nombre del cliente" value="<?php echo $reg3["usuarios_nombre"]; ?>"/>
+          <input  class="form-control" readonly type="text" name="nombre" id="nombre" placeholder="Nombre" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Nombre del cliente" value="<?php echo $reg3["usuarios_nombre"]; ?>"/>
         </div>
         <div class="form-group">
           <label for="Apellido1">Apellido 1:</label>
-          <input  class="form-control" type="text" name="apellido1" id="apellido1" placeholder="Apellido1" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Primer apellido del cliente" value="<?php echo $reg3["usuarios_apellido1"]; ?>"/>
+          <input  class="form-control" readonly type="text" name="apellido1" id="apellido1" placeholder="Apellido1" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Primer apellido del cliente" value="<?php echo $reg3["usuarios_apellido1"]; ?>"/>
         </div>
         <div class="form-group">
           <label for="Apellido2">Apellido 2:</label>
-          <input  class="form-control"   type="text" name="apellido2" id="apellido2" placeholder="Apellido2" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Segundoapellido del cliente" value="<?php echo $reg3["usuarios_apellido2"]; ?>"/>
+          <input  class="form-control" readonly  type="text" name="apellido2" id="apellido2" placeholder="Apellido2" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Segundoapellido del cliente" value="<?php echo $reg3["usuarios_apellido2"]; ?>"/>
         </div>
         <div class="form-group">
           <label for="nif">NIF</label>
-          <input class="form-control"  type="text" name="nif" id="nif" placeholder="NIF" pattern="(([X-Zx-z]{1})([-]?)(\d{7})([-]?)([A-Za-z]{1}))|((\d{8})([-]?)([A-Za-z]{1}))|(([A-Za-z]{1})(\d{8}))"  title="Introduzca su NIF o CIF" value="<?php echo $reg3["usuarios_nif"]; ?>"/>
+          <input class="form-control" readonly type="text" name="nif" id="nif" placeholder="NIF" pattern="(([X-Zx-z]{1})([-]?)(\d{7})([-]?)([A-Za-z]{1}))|((\d{8})([-]?)([A-Za-z]{1}))|(([A-Za-z]{1})(\d{8}))"  title="Introduzca su NIF o CIF" value="<?php echo $reg3["usuarios_nif"]; ?>"/>
         </div>
 
 

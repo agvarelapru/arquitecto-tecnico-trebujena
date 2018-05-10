@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 08-04-2018 a las 11:17:43
+-- Tiempo de generación: 05-05-2018 a las 12:06:24
 -- Versión del servidor: 5.6.12-log
 -- Versión de PHP: 5.4.12
 
@@ -62,6 +62,76 @@ INSERT INTO `comunidades` (`id`, `slug`, `comunidad`, `capital_id`) VALUES
 (17, 'la-rioja', 'La Rioja', 4124),
 (18, 'ceuta', 'Ceuta', 8115),
 (19, 'melilla', 'Melilla', 8116);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `encargos`
+--
+
+CREATE TABLE IF NOT EXISTS `encargos` (
+  `encargos_id` int(11) NOT NULL AUTO_INCREMENT,
+  `encargos_tipo` text NOT NULL,
+  `encargos_fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `encargos_pem` double NOT NULL,
+  `encargos_ref_catastral` varchar(50) NOT NULL,
+  `encargos_direccion` varchar(100) NOT NULL,
+  `encargos_cp` int(5) NOT NULL,
+  `encargos_poblacion` varchar(50) NOT NULL,
+  `encargos_provincia` varchar(50) NOT NULL,
+  `encargos_superficie` double NOT NULL,
+  `encargos_honorarios` varchar(5) NOT NULL,
+  `encargos_pagos` int(5) NOT NULL DEFAULT '0',
+  `encargos_usuario` int(5) NOT NULL,
+  `encargos_observaciones` text NOT NULL,
+  `encargos_tecnico` int(5) NOT NULL,
+  `encargos_finalizado` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`encargos_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Volcado de datos para la tabla `encargos`
+--
+
+INSERT INTO `encargos` (`encargos_id`, `encargos_tipo`, `encargos_fecha`, `encargos_pem`, `encargos_ref_catastral`, `encargos_direccion`, `encargos_cp`, `encargos_poblacion`, `encargos_provincia`, `encargos_superficie`, `encargos_honorarios`, `encargos_pagos`, `encargos_usuario`, `encargos_observaciones`, `encargos_tecnico`, `encargos_finalizado`) VALUES
+(1, 'Direccion de ejecucion de obras y coordinacion de seguridad y salud', '2018-04-30 18:52:16', 45000, 'a11asd6gf4545adfg', 'C/ Andalucia, 1', 11560, '1802', '11', 140, '1550', 0, 1, '', 1, 0),
+(2, ' Direccion de ejecucion de obras y coordinacion de seguridad y salud', '2018-04-30 18:53:29', 45000, ' a11asd6gf4545adfg', ' C/ Andalucia, 1', 11560, '1802', '11', 140, '1550', 0, 1, ' ', 1, 0),
+(3, 'Direccion de ejecucion de obras y coordinacion de seguridad y salud', '2018-04-30 18:57:50', 45000, 'a11asd6gf4545adfg', 'C/ Andalucia, 1', 11560, '1802', '11', 140, '1550', 0, 1, '', 1, 0),
+(4, 'Proyecto ejecucion vivienda', '2018-04-30 19:07:44', 45000, 'a11asd6gf4545adfg', 'C/ Andalucia, 1', 11560, '1802', '11', 140, '1550', 0, 1, '', 1, 0),
+(7, 'Direccion de ejecucion de obras y coordinacion de seguridad y salud', '2018-04-30 19:11:07', 45000, 'a11asd6gf4545adfg', 'C/ Andalucia, 1', 11560, '1802', '11', 140, '1550', 0, 2, '', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `facturas`
+--
+
+CREATE TABLE IF NOT EXISTS `facturas` (
+  `facturas_id` int(11) NOT NULL AUTO_INCREMENT,
+  `facturas_tecnico` int(5) NOT NULL,
+  `facturas_cliente` int(5) NOT NULL,
+  `facturas_encargo` int(5) NOT NULL,
+  `facturas_fecha` date NOT NULL,
+  `facturas_observaciones` varchar(500) NOT NULL,
+  `facturas_year` int(2) NOT NULL,
+  `facturas_trimestre` int(1) NOT NULL,
+  `facturas_num` int(3) NOT NULL,
+  `facturas_honorarios` int(11) NOT NULL,
+  `facturas_iva` double NOT NULL,
+  `facturas_irpf` double NOT NULL,
+  `facturas_total` double NOT NULL,
+  `facturas_numero_factura` varchar(10) NOT NULL,
+  PRIMARY KEY (`facturas_id`),
+  UNIQUE KEY `facturas_numero` (`facturas_numero_factura`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Volcado de datos para la tabla `facturas`
+--
+
+INSERT INTO `facturas` (`facturas_id`, `facturas_tecnico`, `facturas_cliente`, `facturas_encargo`, `facturas_fecha`, `facturas_observaciones`, `facturas_year`, `facturas_trimestre`, `facturas_num`, `facturas_honorarios`, `facturas_iva`, `facturas_irpf`, `facturas_total`, `facturas_numero_factura`) VALUES
+(5, 1, 2, 7, '2018-05-03', '', 18, 2, 0, 1550, 325.5, 0, 1875.5, '18/02-02'),
+(7, 1, 1, 2, '2018-05-03', '', 18, 2, 3, 1550, 325.5, 0, 1875.5, '18/02-01');
 
 -- --------------------------------------------------------
 
@@ -234,13 +304,13 @@ INSERT INTO `municipios` (`provincia_id`, `municipio`, `id`, `slug`, `latitud`, 
 (3, 'Alcoleja', 146, 'alcoleja', 38.6754168, -0.3323183),
 (3, 'Alcoy/Alcoi', 147, 'alcoyalcoi', 38.6976276, -0.4730959),
 (3, 'Alfafara', 148, 'alfafara', 38.772663, -0.5552129),
-(3, 'Alfàs del Pi, l''', 149, 'alfs-del-pi-l', 38.5805544, -0.1032094),
+(3, 'Alfàs del Pi, l', 149, 'alfs-del-pi-l', 38.5805544, -0.1032094),
 (3, 'Algorfa', 150, 'algorfa', 38.0858671, -0.7957607),
 (3, 'Algueña', 151, 'alguea', 38.3388551, -1.0032342),
 (3, 'Alicante/Alacant', 152, 'alicantealacant', 38.34521, -0.4809945),
 (3, 'Almoradí', 153, 'almorad', 38.109625, -0.7920032),
 (3, 'Almudaina', 154, 'almudaina', 38.7611459, -0.35386),
-(3, 'Alqueria d''Asnar, l''', 155, 'alqueria-dasnar-l', 38.7723463, -0.4256638),
+(3, 'Alqueria d''Asnar, l', 155, 'alqueria-dasnar-l', 38.7723463, -0.4256638),
 (3, 'Altea', 156, 'altea', 38.6003162, -0.0491708),
 (3, 'Aspe', 157, 'aspe', 38.3485684, -0.7694142),
 (3, 'Balones', 158, 'balones', 38.7368262, -0.3420584),
@@ -306,7 +376,7 @@ INSERT INTO `municipios` (`provincia_id`, `municipio`, `id`, `slug`, `latitud`, 
 (3, 'Jávea/Xàbia', 218, 'jveaxbia', 38.7954617, 0.1166293),
 (3, 'Jijona/Xixona', 219, 'jijonaxixona', 38.5400636, -0.5077739),
 (3, 'Llíber', 220, 'llber', 38.7427253, 0.0063282),
-(3, 'Lorcha/Orxa, l''', 221, 'lorchaorxa-l', 38.8430542, -0.309963),
+(3, 'Lorcha/Orxa, l', 221, 'lorchaorxa-l', 38.8430542, -0.309963),
 (3, 'Millena', 222, 'millena', 38.7305784, -0.3638289),
 (3, 'Monforte del Cid', 223, 'monforte-del-cid', 38.3792316, -0.7292369),
 (3, 'Monóvar/Monòver', 224, 'monvarmonver', 38.4372058, -0.8393462),
@@ -8216,6 +8286,72 @@ INSERT INTO `municipios` (`provincia_id`, `municipio`, `id`, `slug`, `latitud`, 
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `preguntas`
+--
+
+CREATE TABLE IF NOT EXISTS `preguntas` (
+  `preguntas_id` int(5) NOT NULL AUTO_INCREMENT,
+  `preguntas_fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `preguntas_asunto` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `preguntas_pregunta` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `preguntas_usuario` varchar(50) NOT NULL,
+  `preguntas_nombre` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `latitud` double NOT NULL,
+  `longitud` double NOT NULL,
+  `preguntas_email` varchar(100) NOT NULL,
+  `preguntas_respondida` tinyint(1) NOT NULL DEFAULT '0',
+  `preguntas_respuesta` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `preguntas_fecha_respuesta` date NOT NULL,
+  `preguntas_atendido` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `preguntas_leida` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`preguntas_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Volcado de datos para la tabla `preguntas`
+--
+
+INSERT INTO `preguntas` (`preguntas_id`, `preguntas_fecha`, `preguntas_asunto`, `preguntas_pregunta`, `preguntas_usuario`, `preguntas_nombre`, `latitud`, `longitud`, `preguntas_email`, `preguntas_respondida`, `preguntas_respuesta`, `preguntas_fecha_respuesta`, `preguntas_atendido`, `preguntas_leida`) VALUES
+(1, '2018-04-29 11:16:17', 'Mensaje de prueba', 'Este es el primer mensaje que registro de prueba', '1', 'Angel Varela Pruaño', 36.8709412, -6.176904, 'agvarelapru@gmail.com', 1, 'Esta es la respuesta a la pregunta', '2018-04-29', 'agvarela', 0),
+(5, '2018-04-29 12:42:59', 'Adios', 'Hasta luego lucaaas', 'agvarela', 'Angel Varela Pruaño', 0, 0, 'agvarelapru@gmail.com', 0, '', '0000-00-00', '', 0),
+(6, '2018-04-29 17:05:15', 'Hola', 'Buenas acabo de registrarme', 'pp', 'Pepe Garcia Lopez', 0, 0, 'arturo@asd.com', 1, 'Hola pepe que pasa con tigo', '2018-04-29', 'agvarela', 0),
+(7, '2018-04-29 19:19:20', 'Mensaje de prueba', 'Este es un mensaje desde el area publica', '', 'Angel', 36.8710556, -6.1768244999999995, 'agvarelapru@gmail.com', 1, 'Esta es la respuesta al mensaje de la zona publica', '2018-04-29', 'agvarela', 0),
+(8, '2018-04-30 20:10:20', 'hola', 'esto es una prueba', 'pp', 'Pepe Garcia Lopez', 0, 0, 'arturo@asd.com', 0, '', '0000-00-00', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `presupuestos`
+--
+
+CREATE TABLE IF NOT EXISTS `presupuestos` (
+  `presupuestos_id` int(11) NOT NULL AUTO_INCREMENT,
+  `presupuestos_nombre` varchar(100) NOT NULL,
+  `presupuestos_nif` varchar(10) NOT NULL,
+  `presupuestos_encargo` text NOT NULL,
+  `presupuestos_superficie` varchar(15) NOT NULL,
+  `presupuestos_pem` int(11) NOT NULL,
+  `presupuestos_honorarios` int(11) NOT NULL,
+  `presupuestos_email` varchar(100) NOT NULL,
+  `presupuestos_fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `presupuestos_observaciones` text NOT NULL,
+  `presupuestos_aceptado` tinyint(1) NOT NULL DEFAULT '0',
+  `presupuestos_usuario` varchar(50) NOT NULL,
+  PRIMARY KEY (`presupuestos_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `presupuestos`
+--
+
+INSERT INTO `presupuestos` (`presupuestos_id`, `presupuestos_nombre`, `presupuestos_nif`, `presupuestos_encargo`, `presupuestos_superficie`, `presupuestos_pem`, `presupuestos_honorarios`, `presupuestos_email`, `presupuestos_fecha`, `presupuestos_observaciones`, `presupuestos_aceptado`, `presupuestos_usuario`) VALUES
+(1, ' Angel', ' 12345678Z', ' Direccion de ejecucion de obras y coordinacion de seguridad y salud. Sita en calle Ramon y Cajal, 1 de Trebujena (Cadiz).', ' 140 m2', 45000, 1650, ' agvarelapru@gmail.com', '2018-04-30 11:55:44', ' ', 1, '1'),
+(2, 'Angel', '12345678Z', 'Direccion de ejecucion de obras y coordinacion de seguridad y salud. Sita en calle Ramon y Cajal, 1 de Trebujena (Cadiz).', '140 m2', 45000, 1650, 'agvarelapru@gmail.com', '2018-04-30 11:56:09', '', 0, ''),
+(3, 'PEPE', '', 'direccion de obras', '120', 30000, 1320, 'apr@asd.com', '2018-04-30 12:26:46', '', 0, '2');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `provincias`
 --
 
@@ -8287,6 +8423,45 @@ INSERT INTO `provincias` (`id`, `slug`, `provincia`, `comunidad_id`, `capital_id
 (50, 'zaragoza', 'Zaragoza', 2, 8113),
 (51, 'ceuta', 'Ceuta', 18, 8115),
 (52, 'melilla', 'Melilla', 19, 8116);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `usuarios_id` int(10) NOT NULL AUTO_INCREMENT,
+  `usuarios_nombre` varchar(100) NOT NULL,
+  `usuarios_apellido1` varchar(100) NOT NULL,
+  `usuarios_apellido2` varchar(100) NOT NULL,
+  `usuarios_nif` varchar(9) NOT NULL,
+  `usuarios_direccion` varchar(100) NOT NULL,
+  `usuarios_cp` int(5) NOT NULL,
+  `usuarios_poblacion` int(4) NOT NULL,
+  `usuarios_provincia` int(2) NOT NULL,
+  `usuarios_telefono` int(9) NOT NULL,
+  `usuarios_email` varchar(100) NOT NULL,
+  `usuarios_titulacion` varchar(100) DEFAULT NULL,
+  `usuarios_colegio` varchar(100) DEFAULT NULL,
+  `usuarios_num_colegiado` varchar(20) DEFAULT NULL,
+  `usuarios_perfil` varchar(25) NOT NULL DEFAULT 'Cliente',
+  `usuarios_usuario` varchar(100) NOT NULL,
+  `usuarios_pass` varchar(100) NOT NULL,
+  `usuarios_bloqueado` tinyint(4) NOT NULL DEFAULT '1',
+  `usuarios_fecha_alta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `usuarios_fecha_nacimiento` date NOT NULL,
+  PRIMARY KEY (`usuarios_id`),
+  UNIQUE KEY `usuarios_nif` (`usuarios_nif`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`usuarios_id`, `usuarios_nombre`, `usuarios_apellido1`, `usuarios_apellido2`, `usuarios_nif`, `usuarios_direccion`, `usuarios_cp`, `usuarios_poblacion`, `usuarios_provincia`, `usuarios_telefono`, `usuarios_email`, `usuarios_titulacion`, `usuarios_colegio`, `usuarios_num_colegiado`, `usuarios_perfil`, `usuarios_usuario`, `usuarios_pass`, `usuarios_bloqueado`, `usuarios_fecha_alta`, `usuarios_fecha_nacimiento`) VALUES
+(1, 'Angel', 'Varela', 'Pruaño', '44049151B', 'C/ Ramon y Cajal, 1', 11560, 1802, 11, 605884603, 'agvarelapru@gmail.com', NULL, NULL, NULL, 'Administrador', 'agvarela', '576bf09efbbc72eb17361202b592e7ee', 0, '2018-04-12 18:39:17', '0000-00-00'),
+(2, 'Pepe', 'Garcia', 'Lopez', '55555555K', 'C/ Palomino, 25', 11560, 1802, 11, 654123789, 'arturo@asd.com', NULL, NULL, NULL, 'Cliente', 'pp', '576bf09efbbc72eb17361202b592e7ee', 0, '2018-04-29 16:57:34', '0000-00-00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

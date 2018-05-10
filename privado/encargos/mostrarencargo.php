@@ -105,13 +105,18 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
             <fieldset>
             <legend>Datos del encargo</legend>
             <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
               <div class="form-group">
                 <label for="honorarios">Honorarios:</label>
                 <input  class="form-control"  type="text" name="honorarios" id="honorarios" placeholder="Honorarios"  pattern="[,.0-9]{1,50}"  title="Honorarios" required disabled value="<?php echo " ".$reg["encargos_honorarios"]." €"; ?>"/>
               </div>
               </div>
-
+              <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="pagado">Pagado:</label>
+                        <input  class="form-control"  type="text" name="pagado" id="pagado" placeholder="pagado"  pattern="[,.0-9]{1,50}"  title="Honorarios" required disabled value="<?php echo " ".$reg["encargos_pagos"]." €"; ?>"/>
+                      </div>
+                      </div>
 
               <div class="col-md-12">
                 <div class="form-group">

@@ -19,7 +19,7 @@ $row_cnt = mysqli_num_rows($consulta_mysql);
 
   while($reg=mysqli_fetch_array($consulta_mysql)){
 
-  $option.= '"'.$reg['encargos_tipo'].'","'.$reg['encargos_honorarios'].'","'.$reg['encargos_direccion'].'","'.$reg['municipio'].'","'.$reg['provincia'].'",';
+  $option.= '"'.$reg['encargos_tipo'].'","'.$reg['encargos_honorarios'].'","'.$reg['encargos_direccion'].'","'.$reg['municipio'].'","'.$reg['provincia'].'","'.$reg['encargos_pagos'].'",';
 
   }
   $option = trim($option, ',');

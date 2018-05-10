@@ -281,7 +281,7 @@ die("Problemas en el select:".mysqli_error($conexion));
         <h3 class="modal-title" style="color:white;font-weight:bold;">¡Atencion!</h3>
       </div>
       <div class="modal-body" >
-        <p style="color:black;">¿Esta seguro de eliminar la fcatura?</p>
+        <p style="color:black;">¿Esta seguro de eliminar la factura?</p>
 
       </div>
       <div class="modal-footer" >
