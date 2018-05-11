@@ -60,8 +60,8 @@ $nombre=$reg2["usuarios_nombre"]." ".$reg2["usuarios_apellido1"]." ".$reg2["usua
 
 
 
-     	mysqli_query($conexion,"insert into preguntas(preguntas_asunto,preguntas_pregunta,preguntas_usuario,preguntas_nombre,preguntas_email) values
-                            ('$_REQUEST[asunto]','$_REQUEST[mensaje]','$_REQUEST[nick]','$nombre','$_REQUEST[email]')")
+     	mysqli_query($conexion,"insert into preguntas(preguntas_asunto,preguntas_pregunta,preguntas_usuario,preguntas_nombre,preguntas_email,latitud, longitud) values
+                            ('$_REQUEST[asunto]','$_REQUEST[mensaje]','$_SESSION[id]','$nombre','$_REQUEST[email]','$_REQUEST[latitud]','$_REQUEST[longitud]')")
        or die("Problemas en el select".mysqli_error($conexion));
 
 

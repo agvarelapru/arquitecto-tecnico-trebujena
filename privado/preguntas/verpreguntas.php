@@ -28,7 +28,7 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or
 
 
     if($_SESSION['user']!=""){
-      $where.=" preguntas_usuario LIKE '%".$_SESSION['user']."%' ";
+      $where.=" preguntas_nombre LIKE '%".$_SESSION['user']."%' ";
 
     }
 
@@ -74,7 +74,7 @@ if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
   $rs_contactos = mysqli_query($conexion, "select * from preguntas where ".$where);
   $num_total_registros = mysqli_num_rows($rs_contactos);
 }else{
-  $rs_contactos = mysqli_query($conexion, "select * from preguntas where ".$where." and preguntas_usuario='".$_SESSION['usuario']."'");
+  $rs_contactos = mysqli_query($conexion, "select * from preguntas where ".$where." and preguntas_usuario='".$_SESSION['id']."'");
   $num_total_registros = mysqli_num_rows($rs_contactos);
 
 }
@@ -114,7 +114,7 @@ if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
   $registros=mysqli_query($conexion,"select *  from preguntas where".$where." order by preguntas_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
     die("Problemas en el select:".mysqli_error($conexion));
 }else{
-  $registros=mysqli_query($conexion,"select *  from preguntas where".$where." and preguntas_usuario='".$_SESSION['usuario']."' order by preguntas_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
+  $registros=mysqli_query($conexion,"select *  from preguntas where".$where." and preguntas_usuario='".$_SESSION['id']."' order by preguntas_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
     die("Problemas en el select:".mysqli_error($conexion));
 }
 
@@ -149,7 +149,7 @@ if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
   echo "<div class='list-group' style='width:88%; margin-left:6%;'>";
 
     echo "<a href='?p=preguntas/mostrarp&preguntas_id=".$codigo."' class='list-group-item'>";
-    echo "<h4 class='list-group-item-heading' style='float:left;'>Usuario: ".$reg['preguntas_usuario']."</h4>";
+    echo "<h4 class='list-group-item-heading' style='float:left;'>Usuario: ".$reg['preguntas_nombre']."</h4>";
   echo "<h4 class='list-group-item-heading' style='float:right;'>Respondida: ".$respondida."</h4><br><br>";
     echo  "<p class='list-group-item-text'>Fecha del mensaje: ".$reg['preguntas_fecha']."</p>";
 echo  "<p class='list-group-item-text'>Asunto: ".$reg['preguntas_asunto']."</p>";

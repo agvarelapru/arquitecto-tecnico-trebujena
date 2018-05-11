@@ -13,7 +13,7 @@ session_start();
 
 // Set session variables
 $_SESSION["numero"]=4;
-$_SESSION["user"]= $_REQUEST['nick'];
+$_SESSION["user"]= $_REQUEST['nombre'];
 $_SESSION["email"] = $_REQUEST['email'];
 $_SESSION["fechaPregunta"] = $_REQUEST['fechaPregunta'];
 $_SESSION["respondida"] = $_REQUEST['resuelta'];

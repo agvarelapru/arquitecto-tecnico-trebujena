@@ -73,7 +73,11 @@ if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
   $rs_contactos = mysqli_query($conexion, "select * from facturas ".$where);
   $num_total_registros = mysqli_num_rows($rs_contactos);
 }else{
+  if($where==""){
+    $rs_contactos = mysqli_query($conexion, "select * from facturas where facturas_cliente='".$_SESSION['id']."'");
+  }else{
   $rs_contactos = mysqli_query($conexion, "select * from facturas ".$where." and facturas_cliente='".$_SESSION['id']."'");
+}
   $num_total_registros = mysqli_num_rows($rs_contactos);
 
 }
@@ -113,8 +117,13 @@ if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
   $registros=mysqli_query($conexion,"select *  from facturas ".$where." order by facturas_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
     die("Problemas en el select:".mysqli_error($conexion));
 }else{
-  $registros=mysqli_query($conexion,"select *  from facturas ".$where." and facturas_cliente='".$_SESSION['id']."' order by facturas_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
+  if($where==""){
+  $registros=mysqli_query($conexion,"select *  from facturas where facturas_cliente='".$_SESSION['id']."' order by facturas_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
     die("Problemas en el select:".mysqli_error($conexion));
+  }else{
+      $registros=mysqli_query($conexion,"select *  from facturas ".$where." and facturas_cliente='".$_SESSION['id']."' order by facturas_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
+        die("Problemas en el select:".mysqli_error($conexion));
+    }
 }
 
   $cant=0;

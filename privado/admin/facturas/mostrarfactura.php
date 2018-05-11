@@ -204,7 +204,7 @@ die("Problemas en el select:".mysqli_error($conexion));
                 <div class="col-md-3">
                 <div class="form-group">
                   <label for="honorarios">IMPORTE:</label>
-                  <input  class="form-control" disabled type="text" name="honorarios" id="honorarios" placeholder="Honorarios" pattern="[,.0-9]{1,6}"   title="Honorarios" required value="<?php echo $reg4["encargos_honorarios"];?>"/>
+                  <input  class="form-control" disabled type="text" name="honorarios" id="honorarios" placeholder="Honorarios" pattern="[,.0-9]{1,6}"   title="Honorarios" required value="<?php echo $reg4["encargos_honorarios"]." €";?>"/>
 
                 </div>
                 </div>
@@ -212,7 +212,7 @@ die("Problemas en el select:".mysqli_error($conexion));
                 <div class="col-md-3">
                 <div class="form-group">
                   <label for="honorarios">21%  IVA:</label>
-                  <input  class="form-control" disabled  type="text" name="iva" id="iva" placeholder="IVA" pattern="[,.0-9]{1,10}"   title="IVA" required value="<?php echo $reg["facturas_iva"];?>"/>
+                  <input  class="form-control" disabled  type="text" name="iva" id="iva" placeholder="IVA" pattern="[,.0-9]{1,10}"   title="IVA" required value="<?php echo $reg["facturas_iva"]." €" ;?>"/>
 
                 </div>
                 </div>
@@ -220,14 +220,14 @@ die("Problemas en el select:".mysqli_error($conexion));
                 <div class="col-md-3">
                 <div class="form-group">
                   <label for="honorarios">19%  IRPF:</label>
-                  <input  class="form-control" disabled type="text" name="irpf" id="irpf" placeholder="IRPF" pattern="[,.0-9]{1,10}"   title="IRPF" value="<?php echo $reg["facturas_irpf"];?>"/>
+                  <input  class="form-control" disabled type="text" name="irpf" id="irpf" placeholder="IRPF" pattern="[,.0-9]{1,10}"   title="IRPF" value="<?php echo $reg["facturas_irpf"]." €";?>"/>
 
                 </div>
                 </div>
                 <div class="col-md-3">
                 <div class="form-group">
                   <label for="honorarios">TOTAL:</label>
-                  <input  class="form-control" disabled type="text" name="total" id="total" placeholder="TOTAL" pattern="[,.0-9]{1,10}"   title="TOTAL" required value="<?php echo $reg["facturas_total"];?>"/>
+                  <input  class="form-control" disabled type="text" name="total" id="total" placeholder="TOTAL" pattern="[,.0-9]{1,10}"   title="TOTAL" required value="<?php echo $reg["facturas_total"]." €" ;?>"/>
 
                 </div>
                 </div>

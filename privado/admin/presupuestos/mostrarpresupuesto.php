@@ -111,14 +111,14 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
               <div class="col-md-6">
               <div class="form-group">
                 <label for="superficie">Superficie:</label>
-                <input  class="form-control" readonly type="text" name="superficie" id="superficie" placeholder="Superficie" pattern="[.,-_A-Za-z0-9 ñÑ]{1,50}"  title="Superficie construida" required value="<?php echo " ".$reg["presupuestos_superficie"]; ?>"/>
+                <input  class="form-control" readonly type="text" name="superficie" id="superficie" placeholder="Superficie" pattern="[.,-_A-Za-z0-9 ñÑ]{1,50}"  title="Superficie construida" required value="<?php echo " ".$reg["presupuestos_superficie"]." m2"; ?>"/>
 
               </div>
               </div>
               <div class="col-md-6">
               <div class="form-group">
                 <label for="pem">PEM:</label>
-                <input  class="form-control" readonly type="text" name="pem" id="pem" placeholder="PEM" pattern="[,.-_€A-Za-z0-9 ñÑ]{1,50}"  title="Presupuesto de ejecucion estimado" required value="<?php echo " ".$reg["presupuestos_pem"]; ?>"/>
+                <input  class="form-control" readonly type="text" name="pem" id="pem" placeholder="PEM" pattern="[,.-_€A-Za-z0-9 ñÑ]{1,50}"  title="Presupuesto de ejecucion estimado" required value="<?php echo " ".$reg["presupuestos_pem"]." €"; ?>"/>
 
               </div>
               </div>
@@ -127,7 +127,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
               <div class="col-md-6">
               <div class="form-group">
                 <label for="honorarios">Honorarios:</label>
-                <input  class="form-control" readonly type="text" name="honorarios" id="honorarios" placeholder="Honorarios"   title="Honorarios" required value="<?php echo " ".$reg["presupuestos_honorarios"]; ?>"/>
+                <input  class="form-control" readonly type="text" name="honorarios" id="honorarios" placeholder="Honorarios"   title="Honorarios" required value="<?php echo " ".$reg["presupuestos_honorarios"]." €"; ?>"/>
 
               </div>
               </div>

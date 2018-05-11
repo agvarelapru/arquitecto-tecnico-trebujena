@@ -49,6 +49,15 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 
 
 
+
+  $consulta_mysql2=mysqli_query($conexion,"select *  from usuarios where usuarios_id=".$reg['preguntas_usuario']) or
+    die("Problemas en el select:".mysqli_error($conexion));
+while($reg2=mysqli_fetch_array($consulta_mysql2)){
+
+$usuario=$reg2["usuarios_usuario"];
+
+
+}
 ?>
 
 <!-- Section Contact
@@ -64,7 +73,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 if($reg["preguntas_usuario"]!="" || $reg["preguntas_usuario"] != null){
  ?>
 
-<h2 class="bottombrand wow flipInX">Pregunta del usuario <b style="color: #f05f40;"><?php echo " ".$reg["preguntas_usuario"]." "; ?></b></h2>
+<h2 class="bottombrand wow flipInX">Pregunta del usuario <b style="color: #f05f40;"><?php echo " ".$reg["preguntas_nombre"]." "; ?></b></h2>
 <?php }else{ ?>
 <h2 class="bottombrand wow flipInX">Pregunta enviada desde  el <b style="color: #f05f40;"> area publica</b></h2>
 <?php } ?>
@@ -90,7 +99,7 @@ if($reg["preguntas_usuario"]!="" || $reg["preguntas_usuario"] != null){
 <div class="col-md-6">
 <div class="form-group">
   <label for="nick">Usuario</label>
-  <input  class="form-control" readonly type="text" name="nick" id="nick" placeholder="La pregunta no es de un usuario registrado" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Nick del usuario" required value="<?php echo $reg['preguntas_usuario'];?>"/>
+  <input  class="form-control" readonly type="text" name="nick" id="nick" placeholder="La pregunta no es de un usuario registrado" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Nick del usuario" required value="<?php echo $usuario;?>"/>
   <input  class="form-control" readonly type="hidden" name="preguntas_id" id="preguntas_id" placeholder="id" value="<?php echo $reg['preguntas_id'];?>"/>
   <input  class="form-control" readonly type="hidden" name="id" id="pass" />
   <input  class="form-control" readonly type="hidden" name="id" id="pass2" />

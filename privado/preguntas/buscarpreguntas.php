@@ -27,8 +27,8 @@
 
 
   <div class="form-group">
-  <label for="usuario" >Ingrese el nick del usuario:</label>
-  <input  class="form-control" type="text" name="nick" placeholder="Usuario" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca nombre de usuario .-_A-Za-z0-9 ñÑ"/>
+  <label for="usuario" >Ingrese el nombre del usuario:</label>
+  <input  class="form-control" type="text" name="nombre" placeholder="Nombre" pattern="[.-_A-Za-z0-9 ñÑ]{1,50}"  title="Introduzca nombre de usuario .-_A-Za-z0-9 ñÑ"/>
       </div>
 
 

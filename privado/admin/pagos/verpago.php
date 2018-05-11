@@ -73,7 +73,15 @@ if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
   $rs_contactos = mysqli_query($conexion, "select * from pagos ".$where);
   $num_total_registros = mysqli_num_rows($rs_contactos);
 }else{
-  $rs_contactos = mysqli_query($conexion, "select * from pagos ".$where." pagos_usuario='".$_SESSION['id']."'");
+
+  if($where==""){
+    $rs_contactos = mysqli_query($conexion, "select * from pagos where pagos_usuario='".$_SESSION['id']."'");
+  }else{
+  $rs_contactos = mysqli_query($conexion, "select * from pagos ".$where." and pagos_usuario='".$_SESSION['id']."'");
+}
+
+
+
   $num_total_registros = mysqli_num_rows($rs_contactos);
 
 }
@@ -113,8 +121,16 @@ if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
   $registros=mysqli_query($conexion,"select *  from pagos ".$where."  order by pagos_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
     die("Problemas en el select:".mysqli_error($conexion));
 }else{
-  $registros=mysqli_query($conexion,"select *  from pagos ".$where." pagos_usuario='".$_SESSION['id']."' order by pagos_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
+
+  if($where==""){
+  $registros=mysqli_query($conexion,"select *  from pagos where pagos_usuario='".$_SESSION['id']."' order by pagos_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
     die("Problemas en el select:".mysqli_error($conexion));
+  }else{
+      $registros=mysqli_query($conexion,"select *  from pagos ".$where." and pagos_usuario='".$_SESSION['id']."' order by pagos_fecha  DESC LIMIT ".$inicio."," . $TAMANO_PAGINA) or
+        die("Problemas en el select:".mysqli_error($conexion));
+    }
+
+
 }
 
   $cant=0;

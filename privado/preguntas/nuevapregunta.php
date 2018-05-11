@@ -78,7 +78,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
       <div class="col-md-12">
         <div class="form-group">
           <label for="asunto">Asunto</label>
-          <input  class="form-control"  type="text"  name="asunto" id="asunto"  placeholder="Indique brevemente el asunto de su consulta" autofocus required pattern="[.-_A-Za-z0-9 ñÑ]{2,100}"  title="Indique brevemente el asunto de su consulta" required/>
+          <input  class="form-control"  type="text"   name="asunto" id="asunto"  placeholder="Indique brevemente el asunto de su consulta" autofocus required pattern="[.-_A-Za-z0-9 ñÑ]{2,100}"  title="Indique brevemente el asunto de su consulta" required/>
       </div>
         </div>
 
@@ -89,7 +89,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
       <div class="form-group">
 <label for="mensaje">Mensaje</label>
     <textarea class="form-control" rows="4" placeholder="Mensaje" name="mensaje" pattern="[.-_A-Za-z0-9 ñÑ]{5,500}"></textarea>
-    <input type="hidden" name="latitud" id="latitud"/>
+    <input type="hidden" name="latitud" id="latitud" />
     <input type="hidden" name="longitud" id="longitud"/>
 
   </div>
@@ -122,3 +122,20 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
  mysqli_close($conexion);
 
 ?>
+<script type="text/javascript">
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        alert("Geolocalizacion no soportada por su navegador.");
+        document.getElementById("latitud").value=0;
+        document.getElementById("longitud").value=0;
+    }
+
+
+function showPosition(position) {
+document.getElementById("latitud").value=position.coords.latitude;
+document.getElementById("longitud").value=position.coords.longitude;
+
+}
+</script>
