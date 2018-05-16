@@ -214,7 +214,7 @@ if($_SESSION["perfil"]=="Administrador"){
   </form>
   <?php
 }
-  $self="?p=facturas/verfacturas";
+  $self="?p=admin/facturas/verfacturas";
   if ($total_paginas > 1) {
     ?><ul class="pagination" ><?php
      if ($pagina != 1){

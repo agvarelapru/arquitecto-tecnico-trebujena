@@ -301,12 +301,20 @@ die("Problemas en el select:".mysqli_error($conexion));
 </div>
 
 
-<?php
-}
-?>
+
 
 
     </form>
+
+
+        <div class="section-title text-center">
+    <a href="<?php echo $reg["facturas_pdf"]; ?>" target="_blank"><button type="button" name="button" class="btn btn-contact submit btn btn-primary btn-xl" style="color:white;">Descargar factura</button></a>
+</div>
+
+    <?php
+    }
+    ?>
+
     <br><br>
 </div>
 

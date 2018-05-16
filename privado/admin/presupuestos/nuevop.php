@@ -54,8 +54,14 @@
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
-    <label for="tipo">Tipo de trabajo</label>
-        <textarea class="form-control" rows="4" placeholder="Tipo de trabajo" name="trabajos" pattern="[.-_()A-Za-z0-9 ñÑ]{5,500}" required></textarea>
+    <label for="tipo">Descripcion del trabajo</label>
+        <textarea class="form-control" rows="4" placeholder="Descripcion del trabajo" name="trabajos" pattern="[.-_()A-Za-z0-9 ñÑ]{5,500}" required></textarea>
+      </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+    <label for="tipo">Lista trabajos</label>
+        <textarea class="form-control" rows="4" placeholder="Lista trabajo" name="detallesTrabajos" pattern="[.-_()A-Za-z0-9 ñÑ]{5,500}" required></textarea>
       </div>
         </div>
         <div class="col-md-6">

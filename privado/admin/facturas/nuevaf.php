@@ -93,7 +93,7 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
 </div>
 <div class="form-group">
   <label for="nif">NIF</label>
-  <input class="form-control"  readonly type="text" name="nif" id="nifT" placeholder="NIF" pattern="(([X-Zx-z]{1})([-]?)(\d{7})([-]?)([A-Za-z]{1}))|((\d{8})([-]?)([A-Za-z]{1}))|(([A-Za-z]{1})(\d{8}))"  title="Introduzca su NIF o CIF" value="<?php echo $reg["usuarios_nif"]; ?>"/>
+  <input class="form-control"  readonly type="text" name="nifT" id="nifT" placeholder="NIF" pattern="(([X-Zx-z]{1})([-]?)(\d{7})([-]?)([A-Za-z]{1}))|((\d{8})([-]?)([A-Za-z]{1}))|(([A-Za-z]{1})(\d{8}))"  title="Introduzca su NIF o CIF" value="<?php echo $reg["usuarios_nif"]; ?>"/>
 </div>
 
 </fieldset>
@@ -180,7 +180,7 @@ if($num_total_registros>0){
     <div class="col-md-6">
       <div class="form-group">
         <label for="numerofactura">Numero factura:</label>
-        <input  class="form-control"  type="text" name="numfac" id="umfac" placeholder="Numero factura" pattern="[0-9 /-.,]{1,10}"  title="Numero de la factura" value="<?php echo $yearfac."/".$trimestre ."-".$numero;?>"/>
+        <input  class="form-control"  type="text" name="numfac" id="numfac" placeholder="Numero factura" pattern="[0-9 /-.,]{1,10}"  title="Numero de la factura" value="<?php echo $yearfac."_".$trimestre ."-".$numero;?>"/>
 <input  class="form-control"  type="hidden" name="year" id="year"  value="<?php echo $yearfac;?>"/>
         <input  class="form-control"  type="hidden" name="trimestre" id="trimestre"  value="<?php echo $trimestre;?>"/>
 <input  class="form-control"  type="hidden" name="num" id="num"  value="<?php echo $numero;?>"/>
@@ -230,7 +230,7 @@ if($num_total_registros>0){
         <div class="col-md-3">
         <div class="form-group">
           <label for="honorarios">19%  IRPF:</label>
-          <input  class="form-control"  type="text" name="irpf" id="irpf" placeholder="IRPF" pattern="[,.0-9]{1,10}"   title="IRPF" />
+          <input  class="form-control"  type="text" name="irpf" id="irpf" placeholder="IRPF" pattern="[,.0-9]{1,10}"   title="IRPF" value="0"/>
 
         </div>
         </div>
