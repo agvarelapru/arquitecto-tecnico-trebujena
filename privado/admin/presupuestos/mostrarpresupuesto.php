@@ -197,12 +197,15 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
 </div>
 
 
+    </form>
+    <div class="section-title text-center">
+<a href="<?php echo $reg["presupuestos_pdf"]; ?>" target="_blank"><button type="button" name="button" class="btn btn-contact submit btn btn-primary btn-xl" style="color:white;">Descargar presupuesto</button></a>
+</div>
+
 <?php
 }
 ?>
 
-
-    </form>
     <br><br>
 </div>
 

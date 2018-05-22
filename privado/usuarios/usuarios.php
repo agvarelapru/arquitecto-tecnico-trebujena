@@ -146,7 +146,7 @@ if($num_total_registros>0){
     </a>
   </div>
   */
-  echo"<form class='form-horizontal'  action='bloquear.php' method='post'>";
+  echo"<form class='form-horizontal'  action='?p=usuarios/bloquear' method='post'>";
   echo "<div style='float:left;margin-top:25px;margin-right:0%; z-index:1'>";
   echo "<input class='form-control' type='checkbox' name='tic[]' id='tic' value='".$reg['usuarios_id']."'>";
   echo "</div>";
@@ -207,12 +207,12 @@ if($num_total_registros>0){
 
   </form>
   <?php
-  $self="usuarios2.php";
+  $self="?p=usuarios/usuarios";
   if ($total_paginas > 1) {
     ?><ul class="pagination" ><?php
      if ($pagina != 1){
-  ?><li class="previous"><?php   echo '<a href="'.$self.'?pagina=0">Inicio</a>'  ?> </li><?php
-  ?><li class="previous"><?php   echo '<a href="'.$self.'?pagina='.($pagina-1).'"><span class="glyphicon glyphicon-arrow-left"></a>'  ?> </li><?php
+  ?><li class="previous"><?php   echo '<a href="'.$self.'&pagina=0">Inicio</a>'  ?> </li><?php
+  ?><li class="previous"><?php   echo '<a href="'.$self.'&pagina='.($pagina-1).'"><span class="glyphicon glyphicon-arrow-left"></a>'  ?> </li><?php
   }
 
 
@@ -226,13 +226,13 @@ if($num_total_registros>0){
           }else{
               //si el índice no corresponde con la página mostrada actualmente,
               //coloco el enlace para ir a esa página
-            ?><li ><?php  echo '  <a href="'.$self.'?pagina='.$i.'">'.$i.'</a>  ';?></li><?php
+            ?><li ><?php  echo '  <a href="'.$self.'&pagina='.$i.'">'.$i.'</a>  ';?></li><?php
         }
       }
 
         if ($pagina != $total_paginas){
-      ?><li class="next"><?php   echo '<a href="'.$self.'?pagina='.($pagina+1).'"><span class="glyphicon glyphicon-arrow-right"></a>'  ?> </li><?php
-      ?><li class="previous"><?php   echo '<a href="'.$self.'?pagina='.$total_paginas.'">Final</a>'  ?> </li><?php
+      ?><li class="next"><?php   echo '<a href="'.$self.'&pagina='.($pagina+1).'"><span class="glyphicon glyphicon-arrow-right"></a>'  ?> </li><?php
+      ?><li class="previous"><?php   echo '<a href="'.$self.'&pagina='.$total_paginas.'">Final</a>'  ?> </li><?php
     }
   ?></ul><?php
 
@@ -241,7 +241,29 @@ if($num_total_registros>0){
   //<img src="../../biblioteca/siguiente.png" border="0" style="max-width: 100%;">
 
   ?>
+  <form class='form-horizontal'  action='?p=usuarios/usuarios' method='post'>
+  <label style="float:left;">Numero de registros: </label><br><br>
+  <select class="form-control" type="submit" name="numero" style="float:left; width:16%;" onchange = "this.form.submit()"/>
+  <?php
+  if($TAMANO_PAGINA==4){
+    ?><option selected>4</option>
+    <option>7</option>
+    <option>10</option><?php
+  }else if($TAMANO_PAGINA==7){
+    ?><option>4</option>
+    <option selected>7</option>
+    <option>10</option><?php
+  }else if($TAMANO_PAGINA==10){
+  ?>
+  <option>4</option>
+  <option>7</option>
+    <option selected>10</option><?php
+  }
+  ?>
 
+  </select>
+
+  </form>
   </div>
   <?php
 }else{

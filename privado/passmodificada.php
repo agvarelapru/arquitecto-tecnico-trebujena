@@ -68,7 +68,7 @@ $_SESSION["pass"]=$contranueva;
 
         include 'biblioteca/qr-code/phpqrcode/qrlib.php';
        // El nombre del fichero que se generará (una imagen PNG).
-       $file ='img/qr/qr_'.$_SESSION['usuario'].'.png';
+       $file ='registro/img/qr/qr_'.$_SESSION['usuario'].'.png';
        // La data que llevará.
        $data = 'https://www.arquitecto-tecnico-trebujena.es/logeo.php?usuario='.$_SESSION['usuario'].'&pass='.$_SESSION["pass"];
 
@@ -104,7 +104,7 @@ $_SESSION["pass"]=$contranueva;
                             <div Style="  height:320px;  border:2px solid #f05f40;  margin-left: auto; text-align: center;background-color: white;color:black;">
 
                                  <div Style=" background-color:#282f35; height:40px; text-align:left; font-size:1.5em;color:white;padding:3px 10px;"><a Style="background-color: #282f35; border: none;  color: white; text-align: left;  text-decoration: none;  display: inline-block; font-size: 1em; margin-left: 1%; cursor: pointer;  width: 100%;  padding-top: 4px; padding-bottom: 3px; "  href="http://www.agvarelapru.esy.es/FORMULARIO-1" ><spam style="color:#f05f40;">a</spam>rquitecto tecnico-Trebujena</a></div><br>
-                                     <div Style="width:80%;margin-left:10%;"><img src="https://www.arquitecto-tecnico-trebujena.es/img/qr'.$file.'" alt="Codigo QR"></div>
+                                     <div Style="width:80%;margin-left:10%;"><img src="https://www.arquitecto-tecnico-trebujena.es/'.$file.'" alt="Codigo QR"></div>
                                      <h4><u>Usuario</u></h4>
                                      <h4>'.$_SESSION["usuario"].'</h4>
                                   </div>

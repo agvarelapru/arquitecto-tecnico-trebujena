@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://www.arquitecto-tecnico-trebujena.es/</loc>
+  <lastmod>2018-04-28T20:01:40+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.arquitecto-tecnico-trebujena.es/index.html</loc>
+  <lastmod>2018-04-28T20:01:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.arquitecto-tecnico-trebujena.es/nosotros.html</loc>
+  <lastmod>2018-05-05T12:08:37+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.arquitecto-tecnico-trebujena.es/servicios.html</loc>
+  <lastmod>2018-05-05T12:08:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.arquitecto-tecnico-trebujena.es/trabajos.html</loc>
+  <lastmod>2018-05-05T12:08:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.arquitecto-tecnico-trebujena.es/contacto.html</loc>
+  <lastmod>2018-05-05T12:08:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.arquitecto-tecnico-trebujena.es/login.html</loc>
+  <lastmod>2018-05-05T12:08:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.arquitecto-tecnico-trebujena.es/recuperarpass.php</loc>
+  <lastmod>2018-05-17T10:54:06+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.arquitecto-tecnico-trebujena.es/registro/registro.php</loc>
+  <lastmod>2018-05-17T10:54:06+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
