@@ -207,9 +207,15 @@ if($num_total_registros>0){
     <option selected>10</option><?php
   }
   ?>
+<<<<<<< HEAD
 
   </select>
 
+=======
+
+  </select>
+
+>>>>>>> 4e9ebb13adf03e8c8a4ada3465c61385a41af725
   </form>
   </div>
   <?php

@@ -314,6 +314,7 @@ $file="documentos/presupuestos/Presupuesto_".$aleatorio."_".$fecha.".pdf";
 	$phpmailer->Body =$body;
 	$phpmailer->IsHTML(true);
   $phpmailer->AddAttachment($file,"Presupuesto.pdf");
+
 	$phpmailer->Send();
 
      }
