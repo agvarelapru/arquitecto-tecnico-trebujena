@@ -143,7 +143,7 @@ if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
   </div>
   */if($_SESSION["perfil"]=="Administrador"){
   echo"<form class='form-horizontal'  action='?p=admin/presupuestos/borrarpresupuestos' method='post'>";
-  echo "<div style='float:left;margin-top:25px;margin-right:0%; z-index:1'>";
+  echo "<div style='float:left;margin-top:3%; margin-right:0%; z-index:1;width:1.5%;'>";
   echo "<input class='form-control' type='checkbox' name='tic[]' id='tic' value='".$reg['presupuestos_id']."'>";
   echo "</div>";}
   echo "<div class='list-group' style='width:88%; margin-left:6%;'>";
@@ -238,7 +238,29 @@ echo  "<p class='list-group-item-text'>Honorarios: ".$reg['presupuestos_honorari
   //<img src="../../biblioteca/siguiente.png" border="0" style="max-width: 100%;">
 
   ?>
+  <form class='form-horizontal'  action='?p=admin/presupuestos/verpresupuestos' method='post'>
+  <label style="float:left;">Numero de registros: </label><br><br>
+  <select class="form-control" type="submit" name="numero" style="float:left; width:16%;" onchange = "this.form.submit()"/>
+  <?php
+  if($TAMANO_PAGINA==4){
+    ?><option selected>4</option>
+    <option>7</option>
+    <option>10</option><?php
+  }else if($TAMANO_PAGINA==7){
+    ?><option>4</option>
+    <option selected>7</option>
+    <option>10</option><?php
+  }else if($TAMANO_PAGINA==10){
+  ?>
+  <option>4</option>
+  <option>7</option>
+    <option selected>10</option><?php
+  }
+  ?>
 
+  </select>
+
+  </form>
   </div>
   <?php
 }else{

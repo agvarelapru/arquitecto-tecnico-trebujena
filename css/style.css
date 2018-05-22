@@ -382,7 +382,7 @@ body {
 	margin-top:10px;
 	margin-bottom:10px;
 	letter-spacing:3px;
-	font-family:"Century Gothic";
+	font-family:"Dosis";
 }
 .carousel-caption h2 {
 	font-size:30px;
@@ -997,9 +997,9 @@ ul .tline-holder>li {
 	margin-top:30px;
 }
 h1.bottombrand {
-		font-family:"Century Gothic";
+		font-family:Dosis;
 	color:#fff;
-	font-size:30px;
+	
 	margin-top:0;
 }
 h1.bottombrand:first-letter {

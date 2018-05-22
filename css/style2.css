@@ -1,22 +1,26 @@
 body{
   background-color: #282f35;
-  font-family:Century Gothic;
+  font-family:Dosis;
 
 }
 	#ini:hover{
 		color: #f05f40;
 	}
+ h1 {
+
+    font-family:Dosis;
+  }
   h2{
     color:white;
-    font-family:Century Gothic;
+    font-family:Dosis;
   }
   h4{
     color:white;
-    font-family:Century Gothic;
+    font-family:Dosis;
   }
   p{
     color:white;
-    font-family:Century Gothic;
+    font-family:Dosis;
   }
 .back{
   color:white;
@@ -166,7 +170,7 @@ color: #f05f40;
 }
 .pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover {
   color: #f05f40;
-  
+
 }
 .pagination > li > a:focus, .pagination > li > a, .pagination > li > span:focus, .pagination > li > span {
 

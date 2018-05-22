@@ -334,7 +334,7 @@ while($reg=mysqli_fetch_array($consulta_mysql)){
    </div>
    <div class="col-md-6">
 
- <input  class="contact submit btn btn-primary btn-xl" type="submit" id="enviar" name="modpass" formaction="modpass.php" value="Modificar contraseña" style="margin-top:6%;float:right;"/>
+ <input  class="contact submit btn btn-primary btn-xl" type="submit" id="enviar" name="modpass" formaction="pagina.php?p=modpass" value="Modificar contraseña" style="margin-top:6%;float:right;"/>
 
 
  </div>

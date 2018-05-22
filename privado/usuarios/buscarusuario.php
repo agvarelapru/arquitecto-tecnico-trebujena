@@ -52,7 +52,7 @@
       mysqli_set_charset($conexion,"utf8");
 
   $consulta_mysql=mysqli_query($conexion,"select DISTINCT m.municipio, m.id
-               from municipios as m, usuarios as u where m.id=u.usuarios_poblacion order by usuarios_poblacion;") or
+               from municipios as m, usuarios as u where m.id=u.usuarios_poblacion order by m.municipio;") or
   die("Problemas en el select:".mysqli_error($conexion));
 
   ?>

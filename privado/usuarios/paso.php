@@ -1,5 +1,5 @@
 <?php
-$_SESSION["numero"]=2;
+$_SESSION["numero"]=4;
 $_SESSION["user"]= $_REQUEST['usuario'];
 $_SESSION["poblacion"] = $_REQUEST['poblacion'];
 $_SESSION["email"] = $_REQUEST['email'];

@@ -1,0 +1,10 @@
+User-agent: Googlebot
+Disallow: /biblioteca/
+Disallow: /privado/
+Disallow: /documentos/
+Disallow: /*.css$
+Disallow: /*.js$
+Crawl-delay: 3600
+User-agent: *
+Disallow: /
+Sitemap: https://www.arquitecto-tecnico-trebujena.es/sitemap.xml

@@ -3,14 +3,17 @@
  <div class="container" id="home">
 
    <br><br>
- <h2 class="bottombrand wow flipInX">Acceso a <b style="color:#f05f40">zona privada</b></h2><br>
+   <div class="col-lg-10 col-lg-offset-1 text-center">
 
+
+ <h1 class="bottombrand wow flipInX">Acceso a <b style="color:#f05f40">zona privada</b></h1><br>
+<hr>
  <div class="header-text btn">
      <h1><span id="head-title"></span></h1>
  </div>
 
  </div>
-
+</div>
 
 
 

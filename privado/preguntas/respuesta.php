@@ -89,7 +89,7 @@ $fecha_actual = date("Y-m-d");
                                                                                            <p>'.$_REQUEST['asunto'].'</p>
                                                                                            <h4><u>Este es el mensaje enviado:</u></h4>
                                                                                              <p>'.$_REQUEST['mensaje'].'</p>
-                                                                                             <h4<u>>Esta es su respuesta:</u></h4>
+                                                                                             <h4<u>Esta es su respuesta:</u></h4>
                                                                                                <p>'.$_REQUEST['respuesta'].'</p>
                                                                                           </div>
 

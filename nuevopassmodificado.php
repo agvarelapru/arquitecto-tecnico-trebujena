@@ -13,7 +13,9 @@ session_start();
 <meta name="Description" content="Estudio arquitectura arquitecto tecnico trebujena Angel varela Pruaño">
 <meta name="author" content="Angel Varela Pruaño;">
 <meta name="keywords" content="Arquitecto, arquitecto tecnico, aparejador, perito, estudio, arquitectura, proyectos, Obras, certificados energeticos, certificados, seguridad y salud">
+
 <title>Arquitecto tecnico - Trebujena</title>
+<link rel="shortcut icon" href="img/logoFavicon.ico">
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 <!-- Custom Fonts -->

@@ -14,12 +14,14 @@
 
   <?php
 
+  require_once('biblioteca/conexion.php');
+  $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la conexión.");
+    mysqli_set_charset($conexion,"utf8");
+
   if(!empty($_REQUEST["tic"])){
 
 
-             require_once('biblioteca/conexion.php');
-             $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la conexión.");
-               mysqli_set_charset($conexion,"utf8");
+
 
 
 
