@@ -40,7 +40,7 @@ session_start();
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-  		<a class="navbar-brand page-scroll" href="index.html"><img src="img/logo.jpg"  alt="arquitecto tecnico-Trebujena"></a>
+  		<a class="navbar-brand page-scroll" href="index.html"><img src="img/logo3.jpg"  alt="arquitecto tecnico-Trebujena"></a>
   	</div>
   	<!-- Collect the nav links, forms, and other content for toggling -->
   	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -215,7 +215,7 @@ $_SESSION["id"] = $reg['usuarios_id'];
   </div>
 
   <div class="botones">
-    <div class="izquierda"><a href="registro/recordar.html">Recuperar contraseña</a></div>
+    <div class="izquierda"><a href="recuperarpass.php">Recuperar contraseña</a></div>
     <div class="derecha"><a href="registro/registro.php">Alta nueva</a></div>
 </div>
 

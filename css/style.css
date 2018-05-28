@@ -340,9 +340,10 @@ img::-moz-selection {
 	color:#fff;
 	background:0 0;
 }
+/*
 body {
 	webkit-tap-highlight-color:#222;
-}
+}*/
 .carousel-caption {
 	 top:30%;
 }
@@ -359,7 +360,7 @@ body {
 	background-color:#00a6dd;
 }
 .carousel-indicators {
-	bottom:50;
+	bottom:2%;
 }
 .intro .carousel-control.right,.intro .carousel-control.left {
 	background-image:none;
@@ -999,7 +1000,7 @@ ul .tline-holder>li {
 h1.bottombrand {
 		font-family:Dosis;
 	color:#fff;
-	
+
 	margin-top:0;
 }
 h1.bottombrand:first-letter {
@@ -1107,8 +1108,8 @@ input.error,textarea.error {
 }
 		.social2{
 		  float:right;
-
 		}
+
 
 		#social2{
 		  	color: #f05f40;
@@ -1117,9 +1118,43 @@ input.error,textarea.error {
 		  margin-left:0%;
 		letter-spacing: 1em;
 		}
+		#social3{
+				color: #f05f40;
+			float:right;
+			font-size:200%;
+			margin-left:0%;
+		letter-spacing: 1em;
+		}
+		#social4{
+				color: #f05f40;
+			float:right;
+			font-size:200%;
+			margin-left:0%;
+		letter-spacing: 1em;
+		}
+		#social5{
+				color: #f05f40;
+			float:right;
+			font-size:200%;
+			margin-left:0%;
+		letter-spacing: 1em;
+		}
+
+
 		#social2:hover{
 		  color:#eb3812;
 		}
+		#social3:hover{
+			color:#eb3812;
+		}
+		#social4:hover{
+			color:#eb3812;
+		}
+		#social5:hover{
+			color:#eb3812;
+		}
+
+
 		#social-left{
 		  	color: #f05f40;
 		  float:left;
@@ -1135,15 +1170,40 @@ input.error,textarea.error {
 		  text-align: right;
 		}
 		.fa-angle-up{
-		  color:color: #f05f40;
+		  color:#f05f40;
 		}
 		.direccion{
 		  margin-left: 5%;
 		}
-		#ini:hover{
-			color: #f05f40;
+		table, tr, td, .tabla{
+		  	border:1px solid black;
 
 		}
+		table, .table{
+			 	width:100%;
+		}
+		#ini:hover{
+			color: #f05f40;
+		}
+		#ini1:hover{
+			color: #f05f40;
+		}
+		#ini2:hover{
+			color: #f05f40;
+		}
+		#ini3:hover{
+			color: #f05f40;
+		}
+		#ini4:hover{
+			color: #f05f40;
+		}
+		#ini5:hover{
+			color: #f05f40;
+		}
+
+
+
+
 		#twitter:hover, #face:hover, #gl:hover, #wp:hover {
 	    color: #f05f40;
 	}
@@ -1154,7 +1214,27 @@ input.error,textarea.error {
 		margin-top:3%;
 		margin-bottom: 5%;
 		  }
+			.social3{
+				float:left;
+		margin-right: 22%;
+		margin-top:3%;
+		margin-bottom: 5%;
+			}
+			.social4{
+				float:left;
+		margin-right: 22%;
+		margin-top:3%;
+		margin-bottom: 5%;
+			}
+			.social5{
+				float:left;
+		margin-right: 22%;
+		margin-top:3%;
+		margin-bottom: 5%;
+			}
+
 		}
+
 #servicios{
 	background-color: #282f35;
 }

@@ -34,7 +34,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-  		<a class="navbar-brand page-scroll" href="index.html"><img src="img/logo.jpg"  alt="arquitecto tecnico-Trebujena"></a>
+  		<a class="navbar-brand page-scroll" href="index.html"><img src="img/logo3.jpg"  alt="arquitecto tecnico-Trebujena"></a>
   	</div>
   	<!-- Collect the nav links, forms, and other content for toggling -->
   	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -165,9 +165,10 @@ if ($reg['usuarios_bloqueado']==1){
                       <h4 Style="text-align:center">Hola, pulsando sobre el enlace podra volver a introducir una nueva contraseña.</h4>
 
                               <a Style="background-color: #f05f40; border: none;  color: white; text-align: center;  text-decoration: none;  display: inline-block; font-size: 16px; margin-left: 35%; cursor: pointer;  width: 30%;  padding-top: 5px; padding-bottom: 5px;  margin-right: 35%; "  href="https://www.arquitecto-tecnico-trebujena.es/pasonuevopass.php?nick='.$nick.'&pass='.$contra.'" >Nueva contraseña</a>
+                            <br><br>
                             <div Style="  height:320px;  border:2px solid #f05f40;  margin-left: auto; text-align: center;background-color: white;color:black;">
 
-                                 <div Style=" background-color:#282f35; height:40px; text-align:left; font-size:1.5em;color:white;padding:3px 10px;"><a Style="background-color: #282f35; border: none;  color: white; text-align: left;  text-decoration: none;  display: inline-block; font-size: 1em; margin-left: 1%; cursor: pointer;  width: 100%;  padding-top: 4px; padding-bottom: 3px; "  href="https://www.arquitecto-tecnico-trebujena.es/" ><spam style="color:#f05f40;">a</spam>rquitecto tecnico-Trebujena</a></div><br>
+                                 <div Style=" background-color:#282f35; height:40px; text-align:left; font-size:1.5em;color:white;padding:3px 10px;"><a Style="background-color: #282f35; border: none;  color: white; text-align: left;  text-decoration: none;  display: inline-block; font-size: 1em; margin-left: 1%; cursor: pointer;  width: 100%;  padding-top: 4px; padding-bottom: 3px; "  href="https://www.arquitecto-tecnico-trebujena.es/" ><b style="color:#f05f40;">a</b>rquitecto tecnico-Trebujena</a></div><br>
 
                                      <h4><u>Usuario</u></h4>
                                      <h4>'.$nick.'</h4>

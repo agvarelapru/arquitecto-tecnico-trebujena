@@ -6,7 +6,9 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
  ?>
 <div class="container">
   <br><br>
-
+  <?php
+  if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
+  ?>
   <div class="section-title text-center">
     <h2 class="bottombrand wow flipInX">Nuevo <b style="color: #f05f40;">pago</b></h2>
     <hr class="primary">
@@ -16,7 +18,9 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
 
 <a href="?p=admin/pagos/nuevapago" class="btn btn-primary">Nuevo pago</a>
 
-
+<?php
+}
+?>
 
 </div>
 
@@ -56,9 +60,15 @@ $conexion=mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die("Problemas con la c
       <select class="form-control" name="usuarios" id="getuser" title="Indique un cliente" required onchange="muestraEncargos()"/>
     <option value="#">--Selecione un cliente--</option>
 <?php
+
+if($_SESSION["perfil"]=="Administrador" || $_SESSION["perfil"]=="Tecnico"){
+
 $consulta_mysql=mysqli_query($conexion,"select * from usuarios") or
 die("Problemas en el select:".mysqli_error($conexion));
-
+}else{
+  $consulta_mysql=mysqli_query($conexion,"select * from usuarios where usuarios_id=".$_SESSION['id']) or
+  die("Problemas en el select:".mysqli_error($conexion));
+}
 while($reg=mysqli_fetch_array($consulta_mysql)){
 $nombreUsuario=$reg["usuarios_nombre"]." ".$reg["usuarios_apellido1"]." ".$reg["usuarios_apellido2"];
 echo "<option value='".$reg["usuarios_id"]."'>".$nombreUsuario."</option>";
