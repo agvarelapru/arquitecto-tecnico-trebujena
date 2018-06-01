@@ -360,7 +360,7 @@ body {
 	background-color:#00a6dd;
 }
 .carousel-indicators {
-	bottom:2%;
+	bottom:1%;
 }
 .intro .carousel-control.right,.intro .carousel-control.left {
 	background-image:none;
@@ -1179,7 +1179,7 @@ input.error,textarea.error {
 		  	border:1px solid black;
 
 		}
-		table, .table{
+		table, .tabla{
 			 	width:100%;
 		}
 		#ini:hover{
